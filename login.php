@@ -4,10 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body> 
     <div class="form">
+        <h2>Please Log In Here</h2>
+        <form action="" method="POST">
+            <div class="form-input">
+                <label for="username">Username</label>
+                <input type="text" name="fusername">
+            </div>
+            <div class="form-input">
+                <label for="password">Password</label>
+                <input type="password" name="fpassword" id="">
+            </div>
+            <button type="submit" name="flogin" class="login-button">Login</button>
+        </form>   
+    <!-- <div class="form">
         <h2>Please Log In Here</h2>
         <form action="" method="POST">
             <table>
@@ -23,9 +36,9 @@
                     <td><input type="submit" name="flogin" value="Log In"></td>
                 </tr>
             </table>
-        </form>
+        </form> -->
         <p>-or-</p>
-        <div class="alternatifOption">
+        <div class="alternatif-option">
             <img src="picture/logo.png" alt="">
             <img src="picture/logo.png" alt="">
             <img src="picture/logo.png" alt="">
@@ -47,7 +60,7 @@
                 $_SESSION["ses_tipe"] = $data["tipe"];
   
                 if($_SESSION['ses_tipe']==1){
-                    header('location:admin.php');
+                    header('location:admin/admin.php');
                 } elseif($_SESSION['ses_tipe']==2){
                     header('location:siswa.php');
                 } else{

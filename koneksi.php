@@ -1,5 +1,5 @@
 <?php
 
-$koneksi = mysqli_connect("localhost", "root", "", "sekolah");
+$koneksi = mysqli_connect("localhost", "root", "", "classly");
 
 ?>
