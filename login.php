@@ -20,23 +20,6 @@
             </div>
             <button type="submit" name="flogin" class="login-button">Login</button>
         </form>   
-    <!-- <div class="form">
-        <h2>Please Log In Here</h2>
-        <form action="" method="POST">
-            <table>
-                <tr>  
-                    <td>Username</td>
-                    <td><input type="text" name="fusername"></td>
-                </tr>
-                <tr>
-                    <td>Password</td>
-                    <td><input type="password" name="fpassword" id=""></td>
-                </tr>
-                <tr>
-                    <td><input type="submit" name="flogin" value="Log In"></td>
-                </tr>
-            </table>
-        </form> -->
         <p>-or-</p>
         <div class="alternatif-option">
             <img src="picture/logo.png" alt="">
@@ -60,7 +43,7 @@
                 $_SESSION["ses_tipe"] = $data["tipe"];
   
                 if($_SESSION['ses_tipe']==1){
-                    header('location:admin/admin.php');
+                    header('location:admin/admin.php?page=dash');
                 } elseif($_SESSION['ses_tipe']==2){
                     header('location:siswa.php');
                 } else{

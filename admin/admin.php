@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page Admin</title>
-    <link rel="stylesheet" href="../css/p.css">
+    <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body>
     <?php
@@ -53,12 +53,12 @@
                         <span>Event</span>
                     </li>
                 </a>
-                <a href="admin.php?page=insg">
+                <!-- <a href="admin.php?page=insg">
                     <li>
                         <img src="../picture/dashboard.png" alt="" class="icon">
                         <span>Insight</span>
                     </li>
-                </a>
+                </a> -->
             </ul>
         </nav>
     </div>

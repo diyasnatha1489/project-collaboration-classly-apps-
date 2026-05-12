@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attendance Page</title>
-    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/dash.css">
 </head>
 <body>
     <div class="summary-quick">
@@ -17,7 +17,7 @@
                     <p>Hadir</p>
                 </div>
                 <div>
-                    <h2>6</h2>
+                    <h2 class="red">6</h2>
                     <p>Tidak Hadir</p>
                 </div>
             </div>
@@ -25,7 +25,7 @@
         <div class="quick-stats">
             <h3>Event</h3>
             <p>Hari ini</p>
-            <h2>Tidak Ada Event</h2>
+            <h2 class="red">Tidak Ada Event</h2>
         </div>
         <div class="quick-stats">
             <h3>Jadwal Pelajaran</h3>

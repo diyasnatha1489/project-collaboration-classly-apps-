@@ -9,23 +9,42 @@
 <body>
     <nav class="attendance-nav">
         <ul>
-            <li>
-                <a href="/">Present</a>
-            </li>
-            <li>
-                <a href="/">Permit</a>
-            </li>
-            <li>
-                <a href="/">Sick</a>
-            </li>
-            <li>
-                <a href="/">Absent</a>
-            </li>
-            <li>
-                <a href="/">Overview</a>
-            </li>
+            <a href="admin.php?page=attd&attendance=present">
+                <li>Present</li>
+            </a>
+            <a href="admin.php?page=attd&attendance=permit">
+                <li>Permit</li>
+            </a>
+            <a href="admin.php?page=attd&attendance=sick">
+                <li>Sick</li>
+            </a>
+            <a href="admin.php?page=attd&attendance=absent">
+                <li>Absent</li>
+            </a>
         </ul>
-        <img src="../picture/barcode.png" alt="">
+
+        <div class="attendance-container">
+            <?php
+            $attendancePage = isset($_GET["attendance"]) ? $_GET["attendance"] : "present";
+            switch($attendancePage){
+                case "present":
+                    include "attendance/present.php";
+                    break;
+                case "permit":
+                    include "attendance/permit.php";
+                    break;
+                default:
+                    echo "<p>Halaman kehadiran belum tersedia atau tidak ditemukan.</p>";
+                    break;
+            }
+            ?>
+        </div>
+
+        <div class="attendance-barcode">
+            <img src="../picture/barcode.png" alt="Barcode">
+        </div>
     </nav>
+
+    
 </body>
 </html>
