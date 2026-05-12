@@ -1,0 +1,38 @@
+.attendance-nav {
+        display: flex;
+        padding: 0 100px;
+        justify-content: space-between;
+    }
+
+    .attendance-nav ul { 
+        list-style: none;
+        padding: 0;
+        width: 30%;
+    }
+
+    .attendance-nav li {
+        margin: 5px;
+        padding: 15px 20px;
+        cursor: pointer;
+        text-align: left;
+        background-color: #efe28a;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+
+    .attendance-nav li:hover {
+        background-color: #e6d962;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transform: translateY(-2px);
+    }
+
+    .attendance-nav li a {
+        text-decoration: none;
+        color: #000000;
+    }
+
+    .attendance-nav img {
+        width: 250px;
+        height: auto; 
+    }

@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}  
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    line-height: 1.6;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 20%;
+    height: 100vh;
+    /* width: 260px; */
+    /* flex: 0 0 260px; */
+    border-right: 1px solid #ddd;
+    background-color: #ffffff;
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    box-shadow: 0.5px 0.5px 1px 1px  rgba(0,0,0,0.3);
+}
+
+.logo-branding {
+    margin-bottom: 20px;
+}
+
+.logo-branding img {
+    width: 100px;
+}
+
+.user-profile {
+    padding: 15px;
+    width: 80%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0.5px 0.5px 1px 1px  rgba(0,0,0,0.3);
+}
+
+.user-profile a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.user-profile img {
+    width: 45px;
+    height: 45px; 
+    border-radius: 50%; 
+}
+
+.user-profile .user-name {
+    margin-left: 15px;
+    padding-bottom: 0;
+}
+
+.user-profile .user-name h3, p {
+    font-size: 80%;
+    margin: 0;
+}
+
+.user-profile .user-name p {
+    font-weight: lighter;
+    color: #7f8c8d;
+}
+
+.icon {
+    width: 20px;
+    margin: auto;
+}
+
+.navigation-menu ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+    
+.navigation-menu a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.navigation-menu li {
+    padding: 15px 75px 15px 15px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.navigation-menu li:hover {
+    background-color: #efe28a;
+    border-radius: 8px;
+    box-shadow: inset 0.5px 0.5px 1px 1px  rgba(0,0,0,0.3);
+}
+
+.navigation-menu li img {
+    width: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* appInformation Start */
+.chart-container {
+    height: 10vh;
+    width: 80%;
+    /* padding: 20px; */
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.class-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.fast-statistic {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 18px;
+    color: #7f8c8d;
+}
+
+.fast-statistic img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px; 
+}
+/* appInformation End */
+
+/* flashcard Start */
+.summary-card {
+    width: 80%;
+    min-height: 20%;
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    position: absolute;
+    top: 10%;
+    right: 0;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stat-card {
+    background-color: #6589ae;
+    color: #ffffff;
+    border-radius: 8px;
+    min-height: 100px;
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    box-shadow: 0.5px 0.5px 1px 1px  rgba(0,0,0,0.3);
+}
+
+.stat-card img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.stat-card h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+.f-card {
+    display: flex;
+    gap: 10px;
+    border-radius: 5px;
+    background-color: #375c78;
+    box-shadow: 1px 1px 3px 3px  rgba(0,0,0,.3);
+    color: white;
+    padding: 30px 20px;
+}
+/* flashcard End */
+
+/* Container Dashboard Start */
+.container {
+    width: 80%;
+    min-height: 70%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 10px 10px;
+}
+/* Container Dashboard End */

@@ -1,0 +1,90 @@
+# Translation of Themes - Avinex in Indonesian
+# This file is distributed under the same license as the Themes - Avinex package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-08-04 04:43:01+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: id\n"
+"Project-Id-Version: Themes - Avinex\n"
+
+#. Description of the theme
+#: style.css
+#, gp-priority: high
+msgid "Lightning Fast Speed & Responsive Theme. Avinex is a responsive and fully customizable theme to create any kind of websites. The advanced admin panel will enable you to customize it without any technical knowledge. This theme is lightweight, it will enable you to create almost any type of website such a blog, portfolio, acting and shooting industry, total trendy news, newspaper, mega magazine, fashion, dark themes, petcare, animals wildlife, wooden architecture, plumbing contractor, painting estate, interior design, rooms furniture, home decoration, green floral nature, construction, corporate, multiple agency, business promotion, dark variation, industries, Beauty & spa salons, photography, gym, fitness, health, medical, startups, business agencies, law firms, travel, NGO, charity, yoga, kids education, training institute, university portal, restaurant, meta shop, quick magazines, mutual fund, finance, accounting, consulting ,travel agency website. Theme is fully compatible with popular WordPress plugins like Elementor Page Builder, Slider, Carousal, Beaver Builder, Brizy, Visual Composer, Divi, SiteOrigin, Gutenberg, Block-Enabled, WooCommerce, WPML, Yoast SEO, Shortcode, Jetpack, Contact Form 7, Mailchimp for WordPress, bbPress, Demo Importer, WPForms and more. Your WordPress website will never be let down with this theme. View the demo of Avinex Pro https://demo.themesdaddy.com/avinex-pro/"
+msgstr "Kecepatan Secepat Kilat & Tema Responsif. Avinex adalah tema responsif dan dapat disesuaikan sepenuhnya untuk membuat segala jenis situs web. Panel admin tingkat lanjut akan memungkinkan Anda untuk menyesuaikannya tanpa pengetahuan teknis apa pun. Tema ini ringan, memungkinkan Anda membuat hampir semua jenis situs web seperti blog, portofolio, industri akting dan penembakan, berita trendi total, surat kabar, majalah besar, mode, tema gelap, perawatan hewan peliharaan, satwa liar, arsitektur kayu, pipa ledeng kontraktor, pengecatan estate, desain interior, furnitur kamar, dekorasi rumah, sifat bunga hijau, konstruksi, perusahaan, agensi ganda, promosi bisnis, variasi gelap, industri, Salon kecantikan & spa, fotografi, gym, kebugaran, kesehatan, medis, startup, agen bisnis, firma hukum, perjalanan, LSM, amal, yoga, pendidikan anak-anak, lembaga pelatihan, portal universitas, restoran, toko meta, majalah cepat, reksa dana, keuangan, akuntansi, konsultasi, situs web agen perjalanan. Tema sepenuhnya kompatibel dengan plugin WordPress populer seperti Elementor Page Builder, Slider, Carousal, Beaver Builder, Brizy, Visual Composer, Divi, SiteOrigin, Gutenberg, Block-Enabled, WooCommerce, WPML, Yoast SEO, Shortcode, Jetpack, Contact Form 7, Mailchimp untuk WordPress, bbPress, Importir Demo, WPForms, dan lainnya. Situs WordPress Anda tidak akan pernah kecewa dengan tema ini. Lihat demo Avinex Pro https://demo.themesdaddy.com/avinex-pro/"
+
+#. Theme Name of the theme
+#: style.css
+#, gp-priority: high
+msgid "Avinex"
+msgstr "Avinex"
+
+#: core/customizer/custom-controls/customize-upgrade-control.php:20
+msgid "Share a Good Review"
+msgstr "Bagikan Ulasan yang Bagus"
+
+#: core/customizer/custom-controls/customize-upgrade-control.php:18
+msgid "Upgrade to Pro"
+msgstr "Upgrade ke Pro"
+
+#: core/customizer/custom-controls/customize-upgrade-control.php:16
+msgid "Premium Demo"
+msgstr "Demo Premium"
+
+#: core/customizer/custom-controls/customize-upgrade-control.php:14
+msgid "Need Support ?"
+msgstr "Butuh bantuan ?"
+
+#: theme-header.php:109
+msgid "Header Close Menu"
+msgstr "Menu Tutup Tajuk"
+
+#: theme-header.php:100
+msgid "Menu Collaped"
+msgstr "Menu Ciutkan"
+
+#: theme-header.php:62
+msgid "Search Popup Close"
+msgstr "Tutup Popup Pencarian"
+
+#: theme-header.php:59
+msgid "Type To Search"
+msgstr "Ketik untuk mencari"
+
+#: theme-header.php:58
+msgid "Site Search"
+msgstr "Pencarian Situs"
+
+#: theme-header.php:55
+msgid "Search Popup"
+msgstr "Pencarian Popup"
+
+#: theme-header.php:39
+msgid "0"
+msgstr "0"
+
+#: header.php:25
+msgid "Skip to content"
+msgstr "Lewati ke konten"
+
+#. Theme URI of the theme
+#: style.css
+#, gp-priority: low
+msgid "https://themesdaddy.com/themes/avinex-free/"
+msgstr "https://themesdaddy.com/themes/avinex-free/"
+
+#. Author URI of the theme
+#: style.css
+#, gp-priority: low
+msgid "https://themesdaddy.com/"
+msgstr "https://themesdaddy.com/"
+
+#. Author of the theme
+#: style.css
+#, gp-priority: low
+msgid "Themes Daddy"
+msgstr "Themes Daddy"

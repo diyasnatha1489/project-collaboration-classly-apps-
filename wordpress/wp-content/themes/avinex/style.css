@@ -1,0 +1,540 @@
+/*
+Theme Name: Avinex
+Author: Themes Daddy
+Author URI: https://themesdaddy.com/
+Theme URI: https://themesdaddy.com/themes/avinex-free/
+Description: Lightning Fast Speed & Responsive Theme. Avinex is a responsive and fully customizable theme to create any kind of websites. The advanced admin panel will enable you to customize it without any technical knowledge. This theme is lightweight, it will enable you to create almost any type of website such a blog, portfolio, acting and shooting industry, total trendy news, newspaper, mega magazine, fashion, dark themes, petcare, animals wildlife, wooden architecture, plumbing contractor, painting estate, interior design, rooms furniture, home decoration, green floral nature, construction, corporate, multiple agency, business promotion, dark variation, industries, Beauty & spa salons, photography, gym, fitness, health, medical, startups, business agencies, law firms, travel, NGO, charity, yoga, kids education, training institute, university portal, restaurant, meta shop, quick magazines, mutual fund, finance, accounting, consulting ,travel agency website. Theme is fully compatible with popular WordPress plugins like Elementor Page Builder, Slider, Carousal, Beaver Builder, Brizy, Visual Composer, Divi, SiteOrigin, Gutenberg, Block-Enabled, WooCommerce, WPML, Yoast SEO, Shortcode, Jetpack, Contact Form 7, Mailchimp for WordPress, bbPress, Demo Importer, WPForms and more. Your WordPress website will never be let down with this theme. View the demo of Avinex Pro https://demo.themesdaddy.com/avinex-pro/
+Tags: one-column, two-columns, right-sidebar, flexible-header, custom-background, custom-header, custom-menu, editor-style, featured-images, footer-widgets, post-formats, theme-options, threaded-comments, rtl-language-support, translation-ready, full-width-template, custom-logo, blog, e-commerce, portfolio
+Version: 1.0.8
+Tested up to: 6.8
+Requires PHP: 5.4
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GNU General Public License v2 or later
+Text Domain: avinex
+Slug: avinex
+Template: flixita
+*/
+
+
+:root {
+    --bs-primary: #74bd12;
+    --bs-primary-dark:#467408;
+    --bs-primary-light: #74bd121f;
+    --bs-primary-shadow:rgb(0 123 255 / 0.5);
+    --bs-secondary:#214462;
+    --bs-secondary-dark: #000000; 
+}
+
+.avinex-theme .container {
+    max-width: 1300px;
+}
+
+.avinex-theme .main-mobile-nav {
+	background: var(--bs-secondary);
+}
+
+.avinex-theme .main-content h4 {
+    border: none;
+    color: var(--bs-secondary);
+    background-color: #f4ecff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #8E33FF33;
+    padding: 6px 15px;
+    border-radius: 30px;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.avinex-theme .main-content h4:before {
+    display:none;
+}
+
+.avinex-theme .main-content h4 i {
+	color: var(--bs-primary);
+	font-size: 16px;
+    height: 24px;
+    width: 24px;
+	line-height: 24px;
+    border-radius: 50px;
+    display: inline-block;
+    background: var(--bs-gray);
+	text-align: center;
+	margin-left: -7px;
+}
+
+.avinex-theme .info-section .info-inner {
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    border-radius: 20px;
+    border: 0.1rem solid rgba(189, 189, 189, 0.35);
+    z-index: 2;
+}
+
+.avinex-theme .info-section .info-inner::before {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    content: "";
+    background-color: var(--bs-secondary);
+    border-radius: 20px;
+    z-index: -1;
+    transition: all 500ms ease;
+}
+
+.avinex-theme .info-section .info-inner:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.avinex-theme .info-section .info-inner::after {
+    position: absolute;
+    left: -64px;
+    top: -64px;
+    width: 212px;
+    height: 212px;
+    content: "";
+    background-color: var(--bs-primary);
+    border-radius: 50%;
+    z-index: -1;
+    transition: all 500ms ease;
+}
+
+.avinex-theme .info-section .info-inner .feature-img {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+
+.avinex-theme .info-section .info-inner .feature-img img {
+    width: 100%;
+    height: auto;
+	max-height: 153px;
+    object-fit: cover;
+}
+
+
+.avinex-theme .info-section .feature-box-inner {
+    position: relative;
+    padding-right: 90px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.avinex-theme .info-section .info-inner .feature-box-title  {
+    margin-bottom: 0;
+}
+
+.avinex-theme .info-section .info-inner .feature-box-title a{
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 600;
+    margin: 0;
+    text-decoration: none;
+    color: var(--bs-secondary);
+}
+
+.avinex-theme .info-section .info-inner .feature-box-title a {
+    color: inherit;
+    background: linear-gradient(to right, currentcolor 0%, currentcolor 100%) 0px 95% / 0px 1px no-repeat;
+    transition: all 500ms ease;
+}
+
+.avinex-theme .info-section .info-inner .feature-box-title a:hover {
+    background-size: 100% 1px;
+}
+
+.avinex-theme .info-section .info-inner:hover .feature-box-title,
+.avinex-theme .info-section .info-inner:hover .fbox-content,
+.avinex-theme .info-section .info-inner:hover .read-more {
+    color: var(--bs-white);
+}
+
+.avinex-theme .info-section .info-inner .feature-icon {
+    width: 64px;
+    height: 64px;
+    background-color: #F7F5F1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    color: var(--bs-primary);
+    position: absolute;
+    z-index: 2;
+    transition: all 400ms ease;
+    overflow: hidden;
+    right: 0;
+    top: 0;
+}
+
+.avinex-theme .info-section .info-inner:hover .feature-icon {
+    color: var(--bs-white);
+}
+
+.avinex-theme .info-section .info-inner:hover .feature-icon::after {
+    height: 100%;
+}
+.avinex-theme .info-section .info-inner .feature-icon::after {
+    position: absolute;
+    content: "";
+    background-color: var(--bs-primary);
+    width: 100%;
+    height: 0%;
+    left: 50%;
+    top: 50%;
+    border-radius: 25px;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    z-index: -1;
+    transition: all 500ms ease;
+}
+
+
+.avinex-theme .info-section .info-inner .fbox-content {
+    margin-bottom: 10px;
+    max-width: 80%;
+}
+
+
+.avinex-theme .info-section .info-inner .read-more {
+    border-bottom: none;
+    font-weight: 500;
+	color: var(--bs-secondary);
+	text-decoration:none;
+}
+
+.avinex-theme .info-section .info-inner:hover .read-more {
+	color: var(--bs-white);
+}
+
+.avinex-theme .info-section .info-inner .read-more i {
+    rotate: -40deg;
+	color: var(--bs-white);
+    background: var(--bs-primary);
+    border-radius: 100%;
+    height: 25px;
+    width: 25px;
+    line-height: 25px;
+    text-align: center;
+	margin-left: 3px;
+	transition: all 200ms ease;
+}
+
+.avinex-theme .info-section .info-inner:hover .read-more i {
+    background: var(--bs-white);
+	color:var(--bs-primary);
+	rotate: 0deg;
+}
+
+.avinex-theme .info-section .info-inner .bottom-content {
+    margin-top: 0.5rem;
+}
+
+.avinex-theme .service-section {
+    padding: 8.75rem 0;
+	z-index: 0;
+}
+
+.avinex-theme .service-content {
+    padding: 4.5rem 1.563rem 2.188rem;
+	z-index: 2;
+    position: relative;
+}
+
+.avinex-theme .service-inner:hover .service-icon-img-wrap:after{
+	display:none;
+}
+.avinex-theme .service-icon-img-wrap {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    background-color: var(--bs-primary);
+    text-align: center;
+    margin: 0px;
+    box-shadow: none;
+    border-radius: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.avinex-theme .service-inner .service-title {
+    text-align: left;
+}
+
+.avinex-theme .service-inner .service-content {
+    text-align: left;
+}
+.avinex-theme .service-inner h3.service-title {
+    font-size: 22px;
+    margin: 15px 0px !important;
+}
+
+.avinex-theme .service-excerpt p {
+	position: relative;
+	margin-bottom: 25px;
+}
+.avinex-theme .service-icon-img-wrap:after{
+    border: 4px dashed var(--bs-white);
+}
+
+.avinex-theme .service-section .service-box {
+    position: relative;
+}
+
+.avinex-theme .service-section .service-img {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: 0;
+    width: 80px;
+    height: 80px;
+    transition: .5s;
+    opacity: 0;
+    z-index: -1;
+}
+
+.avinex-theme .service-section .service-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.avinex-theme .service-section .service-inner:hover .service-img {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    z-index: 0;
+}
+
+.avinex-theme .service-inner:hover .service-title a, 
+.avinex-theme .service-inner:hover .service-excerpt p, 
+.avinex-theme .service-inner:hover .post-more a {
+    color: var(--bs-white);
+}
+
+
+.avinex-theme .service-section .service-inner {
+    position: relative;
+	border-bottom: none;
+}
+
+.avinex-theme .service-inner::before {
+    content: '';
+    position: absolute;
+    height: 42%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000;
+    z-index: 99;
+    -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    opacity: 0;
+}
+
+.avinex-theme .service-section .service-inner:hover:before {
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+.avinex-theme .service-inner .fbox-number {
+    position: absolute;
+    font-size: 22px;
+    line-height: 40px;
+    height: 40px;
+    width: 40px;
+    top: 10px;
+    right: 10px;
+    font-weight: 600;
+    background: var(--bs-primary);
+    color: var(--bs-white);
+    border-radius: 50px;
+	text-align: center;
+	opacity: 0.3;
+}
+
+.avinex-theme .service-inner:hover .fbox-number {
+    opacity: 1;
+}
+
+.avinex-theme .service-inner .service-icon-img-wrap i {
+    color: var(--bs-white);
+}
+
+.avinex-theme .service-inner .service-title a::before {
+	display:none;
+}
+
+@media (min-width: 992px) {
+	.avinex-theme .main-header {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        border-top: 0;
+        margin: 0 auto;
+        z-index: 99;
+        background: transparent;
+    }
+	body.avinex-theme.admin-bar .main-header {
+        top: 32px;
+    }
+	.avinex-theme .above-header:before,
+	.avinex-theme .above-header:after	{
+        display:none;
+    }
+	.avinex-theme .above-header {
+		background: transparent;
+		border-bottom: none;
+	}
+	.avinex-theme .menu-area {
+		position: relative;
+	    z-index: 3;
+		padding: 0px 30px 0px 60px;
+	}
+	.avinex-theme .menu-area:before, .avinex-theme .menu-area:after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		-webkit-mask-image: url(./assets/images/header-shape.png);
+		mask-image: url(./assets/images/header-shape.png);
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-size: auto;
+		mask-size: auto;
+		-webkit-mask-position: center center;
+		mask-position: center center;
+		background: rgba(255, 255, 255, 0.18);
+		-webkit-backdrop-filter: blur(19.5px);
+		backdrop-filter: blur(19.5px);
+		z-index: -1;
+	}
+	.avinex-theme .menu-area:after {
+		-webkit-mask-image: url(./assets/images/header-shape-border.png);
+		mask-image: url(./assets/images/header-shape-border.png);
+		inset: 1px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+	.avinex-theme .menu-area:before, 
+	.avinex-theme .menu-area:after {
+        -webkit-mask-size: 100% 100%;
+        mask-size: 100% 100%;
+    }
+	.avinex-theme .is-sticky-menu {
+		background: transparent;
+		box-shadow: none;
+	}
+	.avinex-theme .is-sticky-menu .menu-area:before,
+	.avinex-theme .is-sticky-menu .menu-area:after {
+		background: var(--bs-secondary);
+	}
+	.avinex-theme .breadcrumb-area {
+        min-height: 360px;
+    }
+	.avinex-theme .main-navigation {
+		min-height: 84px;
+	}
+	.avinex-theme .main-navbar .main-menu > li.menu-item:not(.focus):not(.active):not(:hover) > a:not(:focus):not(:hover), .avinex-theme .main-navbar .main-menu > li.dropdown > a:before {
+		color: var(--bs-white);
+	}
+	.avinex-theme .main-navbar .main-menu > li.menu-item > a:after {
+		display:none;
+	}
+	.avinex-theme .breadcrumb-center .breadcrumb-content {
+        padding: 200px 0 0;
+    }
+	.avinex-theme .main-content h4 {
+		font-size: 1.2rem;
+	}
+	.avinex-theme .home-slider, 
+	.avinex-theme .home-slider .owl-item img {
+        min-height: 800px;
+        object-fit: cover;
+    }
+	
+	.avinex-theme .main-slider div.main-content {
+        margin-top: 3rem;
+        margin-bottom: 0;
+    }
+	.avinex-theme .slider-section + .info-section {
+		margin-top: -5rem;
+	}
+}
+
+.avinex-theme .btn {
+    border-radius: 50px !important;
+}
+
+.btn-style-three .btn.btn-primary {
+    transition: 0s;
+}
+
+.btn-style-three .btn:before, .btn-style-three .btn:after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  top: 0;
+  width: 0%;
+  background-color: var(--bs-white);
+  z-index: -1;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.btn-style-three .btn:before {
+  left: 0;
+  border-radius: 0 20px 20px 0;
+}
+
+.btn-style-three .btn:after {
+  right: 0;
+  border-radius: 20px 0 0 20px;
+}
+
+.btn-style-three .btn:hover,
+.btn-style-three .btn:focus {
+  color: var(--bs-secondary);
+  box-shadow: none;
+}
+
+.btn-style-three .btn:hover::before, .btn-style-three .btn:hover:after,
+.btn-style-three .btn:focus::before, .btn-style-three .btn:focus:after {
+  width: 51%;
+  border-radius: 0;
+}
+
+.wp-block-site-tagline.has-background {
+    padding: 1rem;
+}
+
+.wp-block-site-title.has-background {
+    padding: 1rem;
+}
+
+.wp-block-post-title a:hover, 
+.wp-block-post-title a:focus {
+    color: var(--bs-primary);
+}
+
+.wp-block-categories li a {
+    color: var(--bs-secondary);
+}
+
+.is-large.wc-block-cart .wc-block-cart__totals-title {
+	font-size: 2.5rem;
+}
+
+table.wc-block-cart-items .wc-block-cart-items_row .wc-block-cart-itemquantity .wc-block-cart-item_remove-link {
+    text-decoration: none;
+}
