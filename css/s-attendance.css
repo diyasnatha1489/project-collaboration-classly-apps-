@@ -1,0 +1,31 @@
+/* Container Dashboard Start */
+.option-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-item: center;
+    background-color: #8aefc3;
+}
+    
+.option-button a {
+    padding: 10px 20px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #000000;
+    box-shadow: 0.5px 0.5px 1px 1px  rgba(0,0,0,0.3);
+    border-radius: 50px;
+}
+
+.option-button a:hover {
+    background-color: #efe28a;
+}
+
+.att-section {
+    width: 100%;
+    height: 50vh;
+    margin: 10px 0;
+    margin-bottom: 0;
+    background-color: #e38aef;
+}
+
+/* Container Dashboard End */

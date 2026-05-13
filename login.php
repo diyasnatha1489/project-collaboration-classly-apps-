@@ -45,7 +45,7 @@
                 if($_SESSION['ses_tipe']==1){
                     header('location:admin/admin.php?page=dash');
                 } elseif($_SESSION['ses_tipe']==2){
-                    header('location:siswa.php');
+                    header('location:siswa/siswa.php?page=attd&section=today');
                 } else{
                     echo "User tidak ditemukan";
                 }

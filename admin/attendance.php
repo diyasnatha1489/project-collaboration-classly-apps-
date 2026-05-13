@@ -26,7 +26,7 @@
         <div class="attendance-container">
             <?php
             $attendancePage = isset($_GET["attendance"]) ? $_GET["attendance"] : "present";
-            switch($attendancePage){
+            switch($attendancePage){ 
                 case "present":
                     include "attendance/present.php";
                     break;
