@@ -1,0 +1,21 @@
+.today {
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.today img {
+    width: 200px;
+}
+
+.today table {
+    width: 100%;
+    margin: 30px;
+    margin-top: 50px;
+}
+
+.today table .right {
+    text-align: right;
+}
