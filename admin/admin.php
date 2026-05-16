@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page Admin</title>
     <link rel="stylesheet" href="../css/admin.css">
+    <?php if(isset($_GET['page']) && $_GET['page'] == 'evnt'){ ?>
+        <link rel="stylesheet" href="../css/event.css">
+    <?php } ?>
 </head>
 <body>
     <?php
