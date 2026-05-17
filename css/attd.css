@@ -1,33 +1,39 @@
-.attendance-nav {
+.container-att {
     display: flex;
-    padding: 15px;
     justify-content: space-between;
 }
+.attendance-nav {
+    padding: 15px;
+    width: 100%;
+}
 
-.attendance-nav ul { 
+/* .attendance-nav ul { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     list-style: none;
-    padding: 0;
-    width: 10%;
+    padding: 0 15px;
+    width: 60%;
 }
 
 .attendance-nav a {
     text-decoration: none;
     color: #000000;
-    font-size: 10px; 
+    font-size: 14px; 
+    border-left: 2px solid #efe28a;
+}
+
+.attendance-nav a:hover {
+    color: #a29439;
+    padding: 0 15px;
 }
 
 .attendance-nav li {
-    height: 20%;
+    height: 5%;
     margin: 5px;
-    padding: 15px 75px 15px 15px;
+    padding: 0 15px;
     cursor: pointer;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: inset 0.5px 0.5px 1px 1px  rgba(0,0,0,0.3);
-}
-
-.attendance-nav li:hover {
-}
+} */
 
 .attendance-container {
     width: 100%;

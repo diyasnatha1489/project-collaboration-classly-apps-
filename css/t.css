@@ -8,6 +8,7 @@
 
 .today img {
     width: 200px;
+    min-height: 200px;
 }
 
 .today table {

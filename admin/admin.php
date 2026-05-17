@@ -81,11 +81,11 @@
         </div>
         <div class="stat-card">
             <img src="../picture/dashboard.png" alt="" class="icon">
-            <h3>3 Agenda minggu ini</h3>
+            <h3>1 jadwal hari ini</h3>
         </div>
         <div class="stat-card">
             <img src="../picture/dashboard.png" alt="" class="icon">
-            <h3>1 jadwal hari ini</h3>
+            <h3>3 Agenda minggu ini</h3>
         </div>
         <div class="stat-card">
             <img src="../picture/dashboard.png" alt="" class="icon">

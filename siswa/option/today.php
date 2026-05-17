@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./../css/today.css">
+    <title>Today Attendance</title>
+    <link rel="stylesheet" href="./../css/t.css">
 </head>
 <body>
     <div class="today">
@@ -24,9 +24,9 @@
             </tr>
         </table>
         <div class="option-button">
-            <a href="siswa.php?section=soc">Scan Or Code</a>
+            <a href="option/scan.php">Scan Or Code</a>
             <a href="siswa.php?section=izin">Izin</a>
-        </div> 
+        </div>
     </div>
 </body>
 </html>
