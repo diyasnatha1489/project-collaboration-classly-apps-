@@ -112,6 +112,9 @@
                 case "schd":
                     include "schedule.php"; 
                     break;  
+                case "edit":
+                    include "edit.php"; 
+                    break; 
                 case "prfl":
                     include "profile.php";
                     break;
