@@ -7,6 +7,29 @@
     <link rel="stylesheet" href="./../css/att-option.css">
 </head>
 <body>
+    <?php
+    
+    include './../koneksi.php';
+    /** @var mysqli $koneksi */
+
+    // Mengambil data absensi hari ini yang berstatus present
+    $query = "SELECT user.username, user.username AS nama_siswa, attendance.date, attendance.time
+            FROM attendance
+            JOIN user ON attendance.username = user.username
+            WHERE attendance.date = CURDATE() AND attendance.status = 'Present'
+            ORDER by attendance.time ASC";
+
+    // Gunakan query langsung dengan mysqli, lalu pastikan $data_present selalu array
+    $result = $koneksi->query($query);
+    if ($result) {
+        $data_present = $result->fetch_all(MYSQLI_ASSOC);
+        $total_present = count($data_present);
+    } else {
+        $data_present = [];
+        $total_present = 0;
+    }
+    
+    ?>
     <div class="present-students" id="present">
         <div class="chart-desc">
             <div class="chart-name">
@@ -27,7 +50,7 @@
                 </ul>
             </div>
             <div class="students">
-                <h2>20</h2>
+                <h2><?php echo $total_present; ?></h2>
                 <p>siswa</p>
             </div>
         </div>
@@ -41,51 +64,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>John Doe</td>
-                        <td>2024-06-01</td>
-                        <td>08:00 WIB</td>
-                    </tr>
-                    <tr>
-                        <td>Jane Smith</td>
-                        <td>2024-06-01</td>
-                        <td>08:05 WIB</td>
-                    </tr>
-                    <tr>
-                        <td>Jane Smith</td>
-                        <td>2024-06-01</td>
-                        <td>08:05 WIB</td>
-                    </tr>
-                    <tr>
-                        <td>Jane Smith</td>
-                        <td>2024-06-01</td>
-                        <td>08:05 WIB</td>
-                    </tr>
-                    <tr>
-                        <td>Jane Smith</td>
-                        <td>2024-06-01</td>
-                        <td>08:05 WIB</td>
-                    </tr>
-                    <tr>
-                        <td>Jane Smith</td>
-                        <td>2024-06-01</td>
-                        <td>08:05 WIB</td>
-                    </tr>
-                    <tr>
-                        <td>Jane Smith</td>
-                        <td>2024-06-01</td>
-                        <td>08:05 WIB</td>
-                    </tr>
-                    <tr>
-                        <td>Jane Smith</td>
-                        <td>2024-06-01</td>
-                        <td>08:05 WIB</td>
-                    </tr>
-                    <tr>
-                        <td>Jane Smith</td>
-                        <td>2024-06-01</td>
-                        <td>08:05 WIB</td>
-                    </tr>
+                    <?php if ($total_present > 0): ?>
+                        <?php foreach ($data_present as $row): ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($row['nama_siswa']);?></td>
+                            <td><?php echo $row['date'];?></td>
+                            <td><?php echo date('H:i', strtotime($row['time'])) . 'WIB';?></td>
+                        </tr>
+                        <?php endforeach;?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="3" style="text-align: center; color: red;">Belum ada siswa yang absen atau izin hari ini</td>
+                        </tr>
+                    <?php endif;?>
+                </tbody>
             </table>
         </div>
     </div>
