@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="../css/scedule.css">
 </head>
 <body>
+    <?php
+    include '../koneksi.php';
+    /**  @var mysqli $koneksi */
+
+    $query = "SELECT * FROM jadwal_pelajaran";
+    $result = mysqli_query($koneksi, $query);
+    if (!$result) {
+        die('Database query error: ' . mysqli_error($koneksi));
+    }
+    ?>
     <form action="admin.php?page=schd">
     <div class="header">
         <a href="admin.php?page=schd" class="edit-btn"><-</a>
@@ -21,87 +31,24 @@
                 <th>Rabu</th>
                 <th>Kamis</th>
                 <th>Jumat</th>
+                <th>Aksi</th>
             </tr>
-            <tr>
-                <td>Jam 1</td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td>Jam 2</td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td>Jam 3</td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td>Jam 4</td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td>Jam 5</td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td>Jam 6</td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td>Jam 7</td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td>Jam 8</td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td>Jam 9</td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td>Jam 10</td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-            </tr>
+    <?php while($data = mysqli_fetch_array($result)) { ?>
+        <tr>
+            <td><?= $data['waktu']; ?></td>
+            <td><?= $data['senin']; ?></td>
+            <td><?= $data['selasa']; ?></td>
+            <td><?= $data['rabu']; ?></td>
+            <td><?= $data['kamis']; ?></td>
+            <td><?= $data['jumat']; ?></td>
+
+            <td>
+                <a href="edit.php?id=<?= $data['id']; ?>">
+                    Edit
+                </a>
+            </td>
+        </tr>
+    <?php } ?>
         </table>
     </div>
     </form>
