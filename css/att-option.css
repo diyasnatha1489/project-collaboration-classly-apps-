@@ -67,6 +67,7 @@
 
 .present-students .chart-students table {
     width: 100%;
+    min-height: 40vh;
     border-collapse: collapse;
     text-align: left;
 }
