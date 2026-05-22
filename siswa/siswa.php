@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page Admin</title>
-    <link rel="stylesheet" href="../css/siswa.css">
+    <link rel="stylesheet" href="../css/sis.css">
 </head>
 <body>
     <?php
@@ -69,7 +69,7 @@
 
     <nav class="nav-bottom">
         <ul>
-            <a href="siswa.php?page=attd&section=today">
+            <a href="siswa.php?page=attd">
                 <li>
                     <img src="../picture/attendance.png" alt="" class="icon">
                 </li>

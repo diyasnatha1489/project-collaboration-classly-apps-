@@ -1,10 +1,34 @@
 /* Container Dashboard Start */
+
+.today {
+    height: 100%;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.today img {
+    width: 200px;
+    min-height: 200px;
+}
+
+.today table {
+    width: 100%;
+    margin: 30px;
+    margin-top: 50px;
+}
+
+.today table .right {
+    text-align: right;
+}
+
 .option-button {
     width: 100%;
     display: flex;
     justify-content: center;
     align-item: center;
-    background-color: #8aefc3;
 }
     
 .option-button a {
@@ -18,14 +42,6 @@
 
 .option-button a:hover {
     background-color: #efe28a;
-}
-
-.att-section {
-    width: 100%;
-    height: 50vh;
-    margin: 10px 0;
-    margin-bottom: 0;
-    background-color: #e38aef;
 }
 
 /* Container Dashboard End */

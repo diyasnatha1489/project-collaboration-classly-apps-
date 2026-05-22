@@ -6,7 +6,7 @@
     <title>Scan QR Code</title>
     <link rel="stylesheet" href="./../../css/s.css">
     <script src="https://unpkg.com/html5-qrcode"></script>
-</head>
+</head> 
 <body>
     <div class="scanner-page">
         <div class="scanner-header">
@@ -23,13 +23,13 @@
             <button id="manualSubmit">Scan File</button>
         </div> -->
 
-        <button class="back-button" onclick="window.location.href='../siswa.php?page=attd&section=today'">Kembali</button>
+        <button class="back-button" onclick="window.location.href='../siswa.php?page=attd'">Kembali</button>
     </div>
 
     <script>
         function onScanSuccess(decodedText, decodedResult) {
             alert("Berhasil Scan: " + decodedText);
-            window.location.href = "../siswa.php?page=attd&section=all&kode=" + encodeURIComponent(decodedText);
+            window.location.href = "../siswa.php?page=attd&kode=" + encodeURIComponent(decodedText);
         }
 
         function onScanFailure(error) {
@@ -67,32 +67,6 @@
         }).catch(err => {
             console.warn('Get cameras failed:', err);
         });
-
-        // const manualSubmit = document.getElementById('manualSubmit');
-        // manualSubmit.addEventListener('click', async function () {
-        //     const fileInput = document.getElementById('manualFile');
-        //     if (!fileInput.files || fileInput.files.length === 0) {
-        //         alert('Pilih file gambar dulu');
-        //         return;
-        //     }
-        //     const file = fileInput.files[0];
-
-        //     if (cameraStarted) {
-        //         try {
-        //             await html5QrCode.stop();
-        //             cameraStarted = false;
-        //         } catch (stopErr) {
-        //             console.warn('Camera stop failed:', stopErr);
-        //         }
-        //     }
-
-        //     html5QrCode.scanFile(file, true)
-        //         .then(decodedText => onScanSuccess(decodedText, null))
-        //         .catch(err => {
-        //             console.warn('Scan file error:', err);
-        //             alert('Gagal scan file: ' + err + '\nPastikan gambar QR jelas, tidak buram, dan memuat kode QR yang valid.');
-        //         });
-        // });
     </script>
 </body>
 </html>

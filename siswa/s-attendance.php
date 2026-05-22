@@ -4,29 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./../css/s-attendance.css">
+    <link rel="stylesheet" href="./../css/s-att.css">
 </head>
 <body>
-    <div class="att-container">
+    <div class="today">
+        <img src="./../picture/attendance.png" alt="">
+        <table>
+            <tr>
+                <td>Profile Name</td>
+                <td class="right">Maula Qodri Lail</td>
+            </tr>
+            <tr>
+                <td>Date</td>
+                <td class="right">Friday, Nov 14</td>
+            </tr>
+            <tr>
+                <td>Expired Time</td>
+                <td class="right">07.00 WIB</td>
+            </tr>
+        </table>
         <div class="option-button">
-            <a href="siswa.php?page=attd&section=today">Today</a>
-            <a href="siswa.php?page=attd&section=all">All</a>
-        </div> 
-        <div class="att-section">
-            <?php
-                if(isset($_GET["section"])){
-                    $page = $_GET["section"];
-                    switch($page){
-                        case "today":
-                            include "option/today.php";
-                            break;
-                        case "all":
-                            include "option/all.php";
-                            break;
-                    }
-                }
-            ?>
-        </div> 
+            <a href="option/scan.php">Scan Or Code</a>
+            <a href="option/izin.php">Izin</a>
+        </div>
     </div>
 </body>
 </html>
