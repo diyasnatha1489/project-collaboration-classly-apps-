@@ -7,13 +7,23 @@
     <link rel="stylesheet" href="../css/scd.css">
 </head>
 <body>
+    <?php
+    include '../koneksi.php';
+    /**  @var mysqli $koneksi */
+
+    $query = "SELECT * FROM jadwal_pelajaran";
+    $result = mysqli_query($koneksi, $query);
+    if (!$result) {
+        die('Database query error: ' . mysqli_error($koneksi));
+    }
+    ?>
     <div class="header">
         <h2>JADWAL PELAJARAN</h2>
         <a href="admin.php?page=edit" class="edit-btn">Edit</a>
     </div>
     <div class="table_container">
         <table>
-            <tr>
+            <tr class="table_header">
                 <th>Waktu</th>
                 <th>Senin</th>
                 <th>Selasa</th>
@@ -21,86 +31,16 @@
                 <th>Kamis</th>
                 <th>Jumat</th>
             </tr>
+        <?php while($data = mysqli_fetch_array($result)) { ?>
             <tr>
-                <td>Jam 1</td>
-                <td>B.Indonesia</td>
-                <td>Matematika</td>
-                <td>B.Inggris</td>
-                <td>B.Jawa</td>
-                <td>KK</td>
+                <td><?= $data['waktu']; ?></td>
+                <td><?= $data['senin']; ?></td>
+                <td><?= $data['selasa']; ?></td>
+                <td><?= $data['rabu']; ?></td>
+                <td><?= $data['kamis']; ?></td>
+                <td><?= $data['jumat']; ?></td>
             </tr>
-            <tr>
-                <td>Jam 2</td>
-                <td>B.Indonesia</td>
-                <td>Matematika</td>
-                <td>B.Inggris</td>
-                <td>B.Jawa</td>
-                <td>KK</td>
-            </tr>
-            <tr>
-                <td>Jam 3</td>
-                <td>B.Indonesia</td>
-                <td>Matematika</td>
-                <td>MP</td>
-                <td>PJOK</td>
-                <td>KK</td>
-            </tr>
-            <tr>
-                <td>Jam 4</td>
-                <td>BK</td>
-                <td>PAI</td>
-                <td>MP</td>
-                <td>PJOK</td>
-                <td>KK</td>
-            </tr>
-            <tr>
-                <td>Jam 5</td>
-                <td>KK</td>
-                <td>PAI</td>
-                <td>MP</td>
-                <td>B.Inggris</td>
-                <td>PKK</td>
-            </tr>
-            <tr>
-                <td>Jam 6</td>
-                <td>KK</td>
-                <td>PAI</td>
-                <td>MP</td>
-                <td>B.Inggris</td>
-                <td>PKK</td>
-            </tr>
-            <tr>
-                <td>Jam 7</td>
-                <td>KK</td>
-                <td>Sejarah</td>
-                <td>KK</td>
-                <td>KK</td>
-                <td>PKK</td>
-            </tr>
-            <tr>
-                <td>Jam 8</td>
-                <td>KK</td>
-                <td>Sejarah</td>
-                <td>KK</td>
-                <td>KK</td>
-                <td>PKK</td>
-            </tr>
-            <tr>
-                <td>Jam 9</td>
-                <td>KK</td>
-                <td>PP</td>
-                <td>KK</td>
-                <td>KK</td>
-                <td>PKK</td>
-            </tr>
-            <tr>
-                <td>Jam 10</td>
-                <td>KK</td>
-                <td>PP</td>
-                <td>KK</td>
-                <td>KK</td>
-                <td>PKK</td>
-            </tr>
+        <?php } ?>
         </table>
     </div>
 </body>
