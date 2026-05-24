@@ -26,6 +26,8 @@ $base_url = $included_in_admin ? 'admin.php?page=evnt' : 'event.php';
 
         <?php 
         include "../koneksi.php";
+        /** @var mysqli $koneksi */
+
         $query = mysqli_query($koneksi, "SELECT * FROM agenda ORDER BY tanggal ASC");
         
         while($data = mysqli_fetch_array($query)){

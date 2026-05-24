@@ -4,23 +4,23 @@
     }
  
  .edit-btn{
-    background:#2f7c8d;
-    color:white;
-    padding:14px 28px;
-    border:none;
-    border-radius:10px;
-    font-size:15px;
+    background: #6589ae;
+    color: white;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
     text-decoration: none;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    gap:12px;
-    transition:0.3s;
-    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
 
 .edit-btn:hover{
-    background:#256775;
+    background:  #6589ae;
     transform:scale(1.03);
     }
 
@@ -35,7 +35,7 @@ table {
     margin-top: 10px;
 }
 th {
-    background: #4f7c8a;
+    background: #6589ae;
     color: white;
     padding: 10px;
 }
@@ -45,7 +45,7 @@ td {
     text-align: center;
 }
 td:first-child {
-    background: #4f7c8a;
+    background: #6589ae;
     color: white;
 }
 table, th, td {
