@@ -1,82 +1,70 @@
-.profile-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
-    background-color: aliceblue;
-}
+*{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-.header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: pink;
-}
+    body{
+      background:#ff6347;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
 
-.back-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
+    .container{
+      display:flex;
+      align-items:center;
+      gap:40px;
+    }
 
-.content {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 50px 0;
-    background-color: tomato;
-}
+    /* FOTO PROFILE */
+    .profile{
+      position:relative;
+    }
 
-.profile {
-    width: 150px;
-    height: 150px;
-}
+    .profile img{
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      object-fit:cover;
+      border:5px solid white;
+    }
 
-.profile img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-}
+    .edit-profile{
+      position:absolute;
+      bottom:10px;
+      left:50%;
+      transform:translateX(-50%);
+      background:white;
+      padding:8px 14px;
+      border-radius:20px;
+      font-size:14px;
+      cursor:pointer;
+    }
 
-.edit-icon {
-    position: relative;
-    top: -30px;
-    left: 40px;
-    background-color: white;
-    border-radius: 50%;
-    padding: 5px;
-    font-size: 14px;
-    width: 30px;
-}
+    /* CARD */
+    .card{
+      width:380px;
+      background:#e5e5e5;
+      padding:25px;
+      border-radius:15px;
+    }
 
-.card {
-    height: 200px;
-    padding: 20px;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    box-shadow: inset 0.5px 0.5px 1px 1px  rgba(0,0,0,0.3);
-}
+    .item{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 0;
+      border-bottom:1px solid #bbb;
+    }
 
-.item {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
+    .item:last-child{
+      border-bottom:none;
+    }
 
-.item:last-child{
-    border-bottom:none;
-}
+    .edit{
+      cursor:pointer;
+      font-weight:bold;
+    }
