@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="show-detail">
-                <p>Detail</p>
+                <a href="admin.php?page=attd">Detail</a>
             </div>
         </div>
         <div class="quick-stats">
@@ -71,7 +71,7 @@
             <p>Hari ini</p>
             <h2 class="red flex">Tidak Ada Event</h2>
             <div class="show-detail">
-                <p>Detail</p>
+                <a href="admin.php?page=evnt">Detail</a>
             </div>
         </div>
         <div class="quick-stats">
@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div class="show-detail">
-                <p>Detail</p>
+                <a href="admin.php?page=schd">Detail</a>
             </div>
         </div>
     </div>

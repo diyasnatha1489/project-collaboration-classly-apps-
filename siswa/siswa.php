@@ -20,7 +20,7 @@
             <h1>XI RPL 2</h1>
         </div>
         <div class="chart-container">
-            <p>33550</p>
+            <!-- <p>33550</p> -->
             <img src="../picture/logo.png" alt="" class="logo">
         </div>
     </div>

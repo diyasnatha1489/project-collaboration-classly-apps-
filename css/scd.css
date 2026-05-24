@@ -5,22 +5,22 @@
  
  .edit-btn{
     background: #6589ae;
-    color:white;
-    padding:14px 28px;
-    border:none;
-    border-radius:10px;
-    font-size:15px;
+    color: white;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
     text-decoration: none;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    gap:12px;
-    transition:0.3s;
-    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
 
 .edit-btn:hover{
-    background: #6589ae;
+    background:  #6589ae;
     transform:scale(1.03);
     }
 
@@ -37,9 +37,6 @@ table {
 }
 
 th {
-    position: sticky;
-    top: 0;
-    z-index: 10;
     background: #6589ae;
     color: white;
     padding: 10px;

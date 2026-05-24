@@ -15,7 +15,7 @@
         </div>
         <div class="scan-box" id="scan">
             <div class="scan-label">Scan-box</div>
-        </div>
+        </div> 
 
         <!-- <div class="manual-input">
             <label for="manualFile">Pilih gambar QR</label>

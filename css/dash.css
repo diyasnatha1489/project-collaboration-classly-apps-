@@ -31,6 +31,11 @@
     border-top: 1px solid #ccc;
 }
 
+.show-detail a {
+    text-decoration: none;
+    color: #4f4f4f;
+}
+
 .red {
     color: #a70000;
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Today Attendance</title>
-    <link rel="stylesheet" href="./../css/izin.css">
+    <link rel="stylesheet" href="./../css/izinnn.css">
 </head>
 <body>
     <div class="permit">
