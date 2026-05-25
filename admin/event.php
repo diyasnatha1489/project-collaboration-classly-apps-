@@ -53,7 +53,7 @@ $base_url = $included_in_admin ? 'admin.php?page=evnt' : 'event.php';
             </header>
             <form action="" method="POST">
                 <input type="date" name="ftanggal" required>
-                <textarea name="fjudul" placeholder="Deskripsi event..." required></textarea>
+                <textarea name="fjudul" placeholder="Deskripsi event" required></textarea>
                 <input type="submit" name="bsimpan" value="Simpan">
             </form>
         </div>
