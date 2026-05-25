@@ -19,7 +19,6 @@
     ?>
     <div class="header">
         <h2>JADWAL PELAJARAN</h2>
-        <a href="admin.php?page=edit" class="edit-btn">Edit</a>
     </div>
     <div class="table_container">
         <table>
@@ -30,6 +29,7 @@
                 <th>Rabu</th>
                 <th>Kamis</th>
                 <th>Jumat</th>
+                <th>Aksi</th>
             </tr>
         <?php while($data = mysqli_fetch_array($result)) { ?>
             <tr>
@@ -39,6 +39,7 @@
                 <td><?= $data['rabu']; ?></td>
                 <td><?= $data['kamis']; ?></td>
                 <td><?= $data['jumat']; ?></td>
+                <td><a href="admin.php?page=edit&id=<?= $data['id']; ?>" class="edit-btn">Edit</a></td>
             </tr>
         <?php } ?>
         </table>
