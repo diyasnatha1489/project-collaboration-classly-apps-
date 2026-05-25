@@ -1,0 +1,113 @@
+.form {
+    width: 50%;
+    height: 80vh;
+    position: fixed;
+    left: 10%;
+    top: 0;
+    bottom: 0;
+    margin: 10vh 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form h2 {
+    font-size: 35px;
+    margin-bottom: 45px;
+}
+
+.form .form-input {
+    position: relative;
+    margin-bottom: 25px;
+}
+.form .form-input label {
+    position: relative;
+    top: 10px;
+    left: 25px;
+    background-color: #fff;
+    padding: 0 5px;
+    color: #888;
+}
+
+.form .form-input input,
+.form .form-input select {
+    width: 100%;
+    padding: 15px 25px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    outline: none;
+    background-color: #fff;
+}
+
+. form .select-wrapper {
+    position: relative;
+    background-color: #612323;
+}
+
+.form .login-button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+    background-color: #e9d58a;
+    color: #fff;
+    font-weight: 300;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.alternatif-option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.alternatif-option img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.background {
+    width: 20%;
+    height: 90vh;
+    position: fixed;
+    right: 10%;
+    bottom: 0;
+    background-color: #375c78;
+    border-radius: 200px 200px 0 0;
+}
+
+.background img {
+    width: 180px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto;
+}
+
+
+/* Responsive Design: ukuran mobile */
+@media (max-width: 750px) {
+    body {
+        
+    }
+    .form {
+        width: 100%;
+        height: 60vh;
+        margin: 0 -40px;
+    }
+
+    .background {
+        z-index: -1;
+        width: 90%;
+        height: 40vh;
+        margin: 0 -20px;
+        background-color: #375c78;
+        border-radius: 200px 200px 0 0;
+    }
+}
