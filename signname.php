@@ -11,32 +11,43 @@ $password = isset($_GET['password']) ? htmlspecialchars($_GET['password'], ENT_Q
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - Detail</title>
+    <link rel="stylesheet" href="css/signname.css">
 </head>
 <body>
+    <div class="form">
     <h2>Sign Up</h2>
     <form action="" method="POST">
         <input type="hidden" name="femail" value="<?php echo $_GET['email'] ?? ''; ?>">
         <input type="hidden" name="fpassword" value="<?php echo $_GET['pass'] ?? ''; ?>">
         <p>
+            <div class="form-input">
             <label>Username:</label><br>
-            <input type="text" name="fusername" required placeholder="Masukkan username...">
+            <input type="text" name="fusername" required placeholder="Masukkan username">
+            </div>
         </p>
         <p>
-            <label>Tipe User:</label><br>
+            <div class="form-input">
             <select name="ftipe" required>
-                <option value="">Anda Adalah</option>
+                <option value="">Tipe User</option>
                 <option value="1">Admin</option>
                 <option value="2">Siswa</option>
             </select>
+            </div>
         </p>
         <p>
+            <div class="form-input">
             <label>Class Code</label><br>
-            <input type="text" name="fcode" placeholder="Masukkan kode kelas (untuk siswa)...">
+            <input type="text" name="fcode" placeholder="Masukkan kode kelas">
+            </div>
         </p>
         <p>
-            <input type="submit" name="bconfirm" value="Confirm">
+            <button type="submit" name="bconfirm" class="login-button">Confirm</button>
         </p>
     </form>
+    </div>
+     <div class="background">
+        <img src="picture/logo-transparan.png" alt="">
+    </div>
     <?php
         if(isset($_POST["bconfirm"])){
             $email = $_POST["femail"];
@@ -89,7 +100,7 @@ $password = isset($_GET['password']) ? htmlspecialchars($_GET['password'], ENT_Q
                exit();
            }
 
-           // insert user admin baru with kode kelas nya
+           // insert user admin baru ft kode kelas nya
            $query = mysqli_query($koneksi, "INSERT INTO user (username, password, tipe, email, first_name, class_code) VALUES ('$username', '$password', '$tipe_user', '$email', '$username', '$code')");
 
            if ($query) {
