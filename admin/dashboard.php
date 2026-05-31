@@ -46,7 +46,18 @@
         $total_absent = 0;
     }
     
-    
+    // eventtt
+
+    $sql_evnt = "SELECT COUNT(*) AS total_event FROM agenda WHERE tanggal = CURDATE()";
+    $result_evnt = mysqli_query($koneksi, $sql_evnt);
+    $data_evnt = mysqli_fetch_assoc($result_evnt);
+    $total_event = $data_evnt['total_event'];
+    $text_event = "0 Event";
+
+    if ($total_event > 0) {
+        $text_event = "$total_event Event";
+        $class_event = "red flex";
+    }
     ?>
     <div class="summary-quick">
         <div class="quick-stats">
@@ -69,7 +80,7 @@
         <div class="quick-stats">
             <h3>Event</h3>
             <p>Hari ini</p>
-            <h2 class="red flex">Tidak Ada Event</h2>
+            <h2 class="<?php echo $class_event; ?>"><?php echo $text_event;  ?></h2>
             <div class="show-detail">
                 <a href="admin.php?page=evnt">Detail</a>
             </div>
