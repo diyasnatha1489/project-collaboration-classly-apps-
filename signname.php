@@ -79,6 +79,7 @@ $password = isset($_GET['password']) ? htmlspecialchars($_GET['password'], ENT_Q
             exit();
         }
         
+        // admin: perlu code sama buat kelas baru, klo siswa perlu code buat join kelas
         // admin perlu code sama buat kelas baru, klo siswa perlu code buat join kelas
         if ($tipe_user == 1) {
            if (empty($code)) {

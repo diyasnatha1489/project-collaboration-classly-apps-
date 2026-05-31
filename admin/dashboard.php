@@ -46,6 +46,7 @@
         $total_absent = 0;
     }
     
+    
     // eventtt
 
     $sql_evnt = "SELECT COUNT(*) AS total_event FROM agenda WHERE tanggal = CURDATE()";
@@ -80,6 +81,7 @@
         <div class="quick-stats">
             <h3>Event</h3>
             <p>Hari ini</p>
+            <h2 class="red flex">Tidak Ada Event</h2>
             <h2 class="<?php echo $class_event; ?>"><?php echo $text_event;  ?></h2>
             <div class="show-detail">
                 <a href="admin.php?page=evnt">Detail</a>

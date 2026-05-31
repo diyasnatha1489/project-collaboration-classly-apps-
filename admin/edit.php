@@ -7,6 +7,26 @@
     <link rel="stylesheet" href="../css/edit.css">
 </head>
 <body>
+    <?php
+    include '../koneksi.php';
+    /**  @var mysqli $koneksi */    
+    $id = $_GET['id'] ?? '';
+    if (!ctype_digit($id)) {
+        echo "ID tidak valid. Silakan kembali dan coba lagi.";
+        exit();
+    }
+    $query = "SELECT * FROM jadwal_pelajaran WHERE id=$id";
+    $result = mysqli_query($koneksi, $query);
+    if (!$result) {
+        die('Database query error: ' . mysqli_error($koneksi));
+    }
+    $edit = mysqli_fetch_assoc($result);
+    if (!$edit) {
+        echo "Data tidak ditemukan. Silakan kembali dan coba lagi.";
+        exit();
+    }
+    
+    ?>
    <?php
 if (isset($_POST['update'])) {
     $id = $_POST['id'] ?? '';
@@ -22,6 +42,7 @@ if (isset($_POST['update'])) {
     } else {
         $query = "UPDATE jadwal_pelajaran SET waktu='$waktu', senin='$senin', selasa='$selasa', rabu='$rabu', kamis='$kamis', jumat='$jumat' WHERE id=$id"; 
         if (mysqli_query($koneksi, $query)) {
+            header("Location: admin.php?page=schd");
             header("Location: admin.php?page=schedule");
             exit();
         } else {
@@ -61,6 +82,7 @@ if (isset($_POST['update'])) {
         name="jumat"
         value="<?= $edit['jumat'] ?? ''; ?>"><br><br>
         <div class="button-group">
+            <a href="admin.php?page=schd" class="edit-btn"><-</a>
             <a href="admin.php?page=schedule" class="edit-btn"><-</a>
             <button type="submit" name="update">
                 Simpan Perubahan
