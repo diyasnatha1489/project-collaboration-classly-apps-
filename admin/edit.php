@@ -7,6 +7,26 @@
     <link rel="stylesheet" href="../css/edit.css">
 </head>
 <body>
+    <?php
+    include '../koneksi.php';
+    /**  @var mysqli $koneksi */    
+    $id = $_GET['id'] ?? '';
+    if (!ctype_digit($id)) {
+        echo "ID tidak valid. Silakan kembali dan coba lagi.";
+        exit();
+    }
+    $query = "SELECT * FROM jadwal_pelajaran WHERE id=$id";
+    $result = mysqli_query($koneksi, $query);
+    if (!$result) {
+        die('Database query error: ' . mysqli_error($koneksi));
+    }
+    $edit = mysqli_fetch_assoc($result);
+    if (!$edit) {
+        echo "Data tidak ditemukan. Silakan kembali dan coba lagi.";
+        exit();
+    }
+    
+    ?>
    <?php
 if (isset($_POST['update'])) {
     $id = $_POST['id'] ?? '';
