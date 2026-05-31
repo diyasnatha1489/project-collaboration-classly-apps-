@@ -13,6 +13,7 @@
     <?php
         session_start();
         include './../koneksi.php';
+       
         /** @var mysqli $koneksi */
 
         $query = "SELECT username FROM user WHERE tipe = 2";
