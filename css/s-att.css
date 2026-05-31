@@ -1,0 +1,47 @@
+/* Container Dashboard Start */
+
+.today {
+    height: 100%;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.today img {
+    width: 200px;
+    min-height: 200px;
+}
+
+.today table {
+    width: 100%;
+    margin: 30px;
+    margin-top: 50px;
+}
+
+.today table .right {
+    text-align: right;
+}
+
+.option-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-item: center;
+}
+    
+.option-button a {
+    padding: 10px 20px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #000000;
+    box-shadow: 0.5px 0.5px 1px 1px  rgba(0,0,0,0.3);
+    border-radius: 50px;
+}
+
+.option-button a:hover {
+    background-color: #efe28a;
+}
+
+/* Container Dashboard End */
