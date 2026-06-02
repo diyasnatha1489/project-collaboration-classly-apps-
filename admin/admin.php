@@ -157,13 +157,7 @@
         </div>
         <div class="stat-card">
             <img src="../picture/event.png" alt="" class="icon">
-            <h3><?php 
-                if ($total_events > 0):
-                    echo $total_events;
-                else: 
-                    echo "0";
-                endif;
-                ?> agenda minggu ini</h3>
+            <h3><?php echo $events_week; ?> agenda minggu ini</h3>
         </div>
         <div class="stat-card">
             <img src="../picture/notification (1).png" alt="" class="icon">

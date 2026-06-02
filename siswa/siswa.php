@@ -39,7 +39,7 @@
         'Wednesday' => 'rabu',
         'Thursday' => 'kamis',
         'Friday' => 'jumat'
-    ];
+    ]; }
     $hari = date('l');
     $kolom_hari = isset($daftar_hari[$hari]) ? $daftar_hari[$hari] : '';
     $total_schedule = 0;
@@ -52,7 +52,7 @@
             $row = $result_jadwal->fetch_assoc();
             $total_schedule = isset($row['cnt']) ? (int) $row['cnt'] : 0;
         }
-    }
+    } 
     ?>
 
     <!-- HEADER START  -->
@@ -81,10 +81,8 @@
                 ?> jadwal hari ini</h3>
         </div>
         <div class="stat-card">
-            <img src="../picture/dashboard.png" alt="" class="icon">
-            <h3><?php echo $events_week; ?> agenda minggu ini</h3>
             <img src="../picture/checklist.png" alt="" class="icon">
-            <h3>3 Agenda minggu ini</h3>
+            <h3><?php echo $events_week; ?> agenda minggu ini</h3>
         </div>
         <div class="stat-card">
             <img src="../picture/notification (1).png" alt="" class="icon">
