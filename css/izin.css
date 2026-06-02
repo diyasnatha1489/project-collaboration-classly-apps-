@@ -40,9 +40,20 @@ body {
     color: #102a43;
 }
 
-.manual-input input[type="file"] {
+.manual-input select {
     width: 100%;
     padding: 14px 12px;
+    margin: 12px 0;
+    border-radius: 14px;
+    border: 1px solid #d1d5db;
+    background: #f8fafc;
+    cursor: pointer;
+}
+
+.manual-input input[type="file"] {
+    width: 92%;
+    padding: 14px 12px;
+    margin: 12px 0;
     border-radius: 14px;
     border: 1px solid #d1d5db;
     background: #f8fafc;

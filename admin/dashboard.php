@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attendance Page</title>
-    <link rel="stylesheet" href="../css/dash.css">
+    <link rel="stylesheet" href="../css/dashb.css">
 </head>
 <body>
     <?php
@@ -47,6 +47,43 @@
         $total_absent = 0;
     }
     
+
+    // SCHEDULE
+    // mapping nama hari (Inggris) ke nama kolom di database
+    $daftar_hari = [
+        'Monday' => 'senin',
+        'Tuesday' => 'selasa',
+        'Wednesday' => 'rabu',
+        'Thursday' => 'kamis',
+        'Friday' => 'jumat'
+    ];
+    $hari = date('l'); 
+    $kolom_hari = isset($daftar_hari[$hari]) ? $daftar_hari[$hari] : '';
+    //array jadwal
+    $list_jadwal = [];
+
+    if (!empty($kolom_hari)) {
+        $sql_jadwal = "SELECT `$kolom_hari` AS mapel, waktu 
+        FROM jadwal_pelajaran 
+        WHERE `$kolom_hari` IS NOT NULL 
+        AND `$kolom_hari` != '' 
+        ORDER BY id ASC";
+
+        $result_jadwal = mysqli_query($koneksi, $sql_jadwal);
+        if ($result_jadwal && mysqli_num_rows($result_jadwal) > 0) {
+            while ($row = mysqli_fetch_assoc($result_jadwal)) {
+                $mapel = $row['mapel'];
+                $jam = $row['waktu'];
+                //jika mapel belum ada
+                if (!isset($list_jadwal[$mapel])) {
+                    $list_jadwal[$mapel] =[];
+                }
+                //masukkan jam ke dalam mapel
+                $list_jadwal[$mapel][] = $jam;
+        }
+    }
+    }
+   
     
     // eventtt
 
@@ -90,31 +127,39 @@
         </div>
         <div class="quick-stats">
             <h3>Jadwal Pelajaran</h3>
-            <p>Hari ini</p>
-            <div class="flex">
-                <div>
-                    <h2>PK</h2>
-                    <p>Jam ke 1-5</p>
-                </div>
-                <div>
-                    <h2>MTK</h2>
-                    <p>Jam ke 6-8</p>
-                </div>
-                <div>
-                    <h2>PP</h2>
-                    <p>Jam ke 9-10</p>
-                </div>
+            <p>Hari ini <?php echo ucfirst($kolom_hari); ?></p>
+            <div class="jadwal-list">
+                <?php if (!empty($list_jadwal)): ?>
+                    <?php foreach ($list_jadwal as $mapel => $jam): ?>
+                       <?php 
+                       $jam_awal =  preg_replace('/[^0-9]/', '', reset($jam));
+                       $jam_akhir = preg_replace('/[^0-9]/', '', end($jam));
+                       ?>
+                    <div class="jadwal-item">
+                        <div class="mapel">
+                            <h2><?php echo htmlspecialchars(strtoupper($mapel));?></h2>
+                        </div>
+                        <div class="jam">    
+                            <?php 
+                            if ($jam_awal == $jam_akhir){
+                                echo "Jam ".$jam_awal;
+                            } else {
+                                echo "Jam ".$jam_awal." - ".$jam_akhir;
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <div>
+                        <h2 class="red">Tidak Ada Jadwal</h2>
+                        <p>Bukan jam sekolah</p>
+                    </div>
+                <?php endif; ?>
             </div>
-            <div class="show-detail">
-                <a href="admin.php?page=schd">Detail</a>
-            </div>
+        <div class="show-detail">
+            <a href="admin.php?page=schd">Detail</a>
         </div>
     </div>
-    <!-- <div class="summary-quick">
-        <div class="quick-stats">
-            <h3>Absensi</h3>
-            <p>Hari ini</p>
-        </div>
-    </div> -->
 </body>
 </html>

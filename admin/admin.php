@@ -51,6 +51,27 @@
 
 
     ?>
+    
+    <?php
+    $daftar_hari = [
+        'Monday' => 'senin',
+        'Tuesday' => 'selasa',
+        'Wednesday' => 'rabu',
+        'Thursday' => 'kamis',
+        'Friday' => 'jumat'
+    ];
+    $hari = date('l');
+    $kolom_hari = isset($daftar_hari[$hari]) ? $daftar_hari[$hari] : '';
+    if (!empty($kolom_hari)) {
+        $sql_jadwal = "SELECT COUNT(DISTINCT `$kolom_hari`) AS cnt FROM jadwal_pelajaran WHERE `$kolom_hari` IS NOT NULL AND `$kolom_hari` != ''";
+        $result_jadwal = $koneksi->query($sql_jadwal);
+        if ($result_jadwal) {
+            $row = $result_jadwal->fetch_assoc();
+            $total_schedule = isset($row['cnt']) ? (int) $row['cnt'] : 0;
+        }
+    }
+    ?>
+    
 
     <!--NAVIGATION BAR START  -->
     <div class="sidebar">
@@ -82,13 +103,13 @@
                 </a>
                 <a href="admin.php?page=schd">
                     <li>
-                        <img src="../picture/dashboard.png" alt="" class="icon">
+                        <img src="../picture/schedule.png" alt="" class="icon">
                         <span>Schedule</span>
                     </li>
                 </a>
                 <a href="admin.php?page=evnt">
                     <li>
-                        <img src="../picture/attendance.png" alt="" class="icon">
+                        <img src="../picture/event.png" alt="" class="icon">
                         <span>Event</span>
                     </li>
                 </a>
@@ -115,7 +136,7 @@
     </div>
     <div class="summary-card">
         <div class="stat-card">
-            <img src="../picture/dashboard.png" alt="" class="icon">
+            <img src="../picture/group_8215621.png" alt="" class="icon">
             <h3><?php 
                 if ($total_active > 0):
                     echo $total_active;
@@ -125,7 +146,7 @@
                 ?> siswa aktif</h3>
         </div>
         <div class="stat-card">
-            <img src="../picture/dashboard.png" alt="" class="icon">
+            <img src="../picture/appointment (1).png" alt="" class="icon">
             <h3><?php 
                 if ($total_schedule > 0):
                     echo $total_schedule;
@@ -135,13 +156,17 @@
                 ?> jadwal hari ini</h3>
         </div>
         <div class="stat-card">
-            <img src="../picture/dashboard.png" alt="" class="icon">
-            <div class="heading-evnt">
-            <h3><?php echo $events_week; ?> agenda minggu ini</h3>
-            </div>
+            <img src="../picture/event.png" alt="" class="icon">
+            <h3><?php 
+                if ($total_events > 0):
+                    echo $total_events;
+                else: 
+                    echo "0";
+                endif;
+                ?> agenda minggu ini</h3>
         </div>
         <div class="stat-card">
-            <img src="../picture/dashboard.png" alt="" class="icon">
+            <img src="../picture/notification (1).png" alt="" class="icon">
             <h3><?php 
                 if ($total_notifications > 0):
                     echo $total_notifications;
