@@ -33,11 +33,11 @@
             <h3>1 jadwal hari ini</h3>
         </div>
         <div class="stat-card">
-            <img src="../picture/dashboard.png" alt="" class="icon">
+            <img src="../picture/checklist.png" alt="" class="icon">
             <h3>3 Agenda minggu ini</h3>
         </div>
         <div class="stat-card">
-            <img src="../picture/dashboard.png" alt="" class="icon">
+            <img src="../picture/notification (1).png" alt="" class="icon">
             <h3>2 notifikasi belum dibaca</h3>
         </div>
     </div>
@@ -76,17 +76,17 @@
             </a>
             <a href="siswa.php?page=schd">
                 <li>
-                    <img src="../picture/dashboard.png" alt="" class="icon">
+                    <img src="../picture/schedule.png" alt="" class="icon">
                 </li>
             </a>
             <a href="siswa.php?page=evnt">
                 <li>
-                    <img src="../picture/attendance.png" alt="" class="icon">
+                    <img src="../picture/event.png" alt="" class="icon">
                 </li>
             </a>
             <a href="siswa.php?page=prfl">
                 <li>
-                    <img src="../picture/dashboard.png" alt="" class="icon">
+                    <img src="../picture/user.png" alt="" class="icon">
                 </li>
             </a>
         </ul>
