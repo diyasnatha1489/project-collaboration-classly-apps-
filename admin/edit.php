@@ -43,7 +43,6 @@ if (isset($_POST['update'])) {
         $query = "UPDATE jadwal_pelajaran SET waktu='$waktu', senin='$senin', selasa='$selasa', rabu='$rabu', kamis='$kamis', jumat='$jumat' WHERE id=$id"; 
         if (mysqli_query($koneksi, $query)) {
             header("Location: admin.php?page=schd");
-            header("Location: admin.php?page=schedule");
             exit();
         } else {
             echo "Error updating record: " . mysqli_error($koneksi);
@@ -83,7 +82,6 @@ if (isset($_POST['update'])) {
         value="<?= $edit['jumat'] ?? ''; ?>"><br><br>
         <div class="button-group">
             <a href="admin.php?page=schd" class="edit-btn"><-</a>
-            <a href="admin.php?page=schedule" class="edit-btn"><-</a>
             <button type="submit" name="update">
                 Simpan Perubahan
             </button>
