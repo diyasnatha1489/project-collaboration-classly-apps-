@@ -32,6 +32,27 @@
             
         if(isset($_SESSION['ses_tipe'])==1){
     ?>
+    
+    <?php
+    $daftar_hari = [
+        'Monday' => 'senin',
+        'Tuesday' => 'selasa',
+        'Wednesday' => 'rabu',
+        'Thursday' => 'kamis',
+        'Friday' => 'jumat'
+    ];
+    $hari = date('l');
+    $kolom_hari = isset($daftar_hari[$hari]) ? $daftar_hari[$hari] : '';
+    if (!empty($kolom_hari)) {
+        $sql_jadwal = "SELECT COUNT(DISTINCT `$kolom_hari`) AS cnt FROM jadwal_pelajaran WHERE `$kolom_hari` IS NOT NULL AND `$kolom_hari` != ''";
+        $result_jadwal = $koneksi->query($sql_jadwal);
+        if ($result_jadwal) {
+            $row = $result_jadwal->fetch_assoc();
+            $total_schedule = isset($row['cnt']) ? (int) $row['cnt'] : 0;
+        }
+    }
+    ?>
+    
 
     <!--NAVIGATION BAR START  -->
     <div class="sidebar">

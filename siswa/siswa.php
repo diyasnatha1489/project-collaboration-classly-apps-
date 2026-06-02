@@ -11,6 +11,28 @@
         session_start();
 
         if(isset($_SESSION['ses_tipe'])==1){
+    
+        // schedule: count today’s schedule directly from database
+    $daftar_hari = [
+        'Monday' => 'senin',
+        'Tuesday' => 'selasa',
+        'Wednesday' => 'rabu',
+        'Thursday' => 'kamis',
+        'Friday' => 'jumat'
+    ];
+    $hari = date('l');
+    $kolom_hari = isset($daftar_hari[$hari]) ? $daftar_hari[$hari] : '';
+    $total_schedule = 0;
+    if (!empty($kolom_hari)) {
+        include './../koneksi.php';
+        /** @var mysqli $koneksi */
+        $sql_jadwal = "SELECT COUNT(DISTINCT `$kolom_hari`) AS cnt FROM jadwal_pelajaran WHERE `$kolom_hari` IS NOT NULL AND `$kolom_hari` != ''";
+        $result_jadwal = $koneksi->query($sql_jadwal);
+        if ($result_jadwal) {
+            $row = $result_jadwal->fetch_assoc();
+            $total_schedule = isset($row['cnt']) ? (int) $row['cnt'] : 0;
+        }
+    }
     ?>
 
     <!-- HEADER START  -->
@@ -30,7 +52,13 @@
     <div class="summary-card">
         <div class="stat-card">
             <img src="../picture/dashboard.png" alt="" class="icon">
-            <h3>1 jadwal hari ini</h3>
+            <h3><?php 
+                if ($total_schedule > 0):
+                    echo $total_schedule;
+                else: 
+                    echo "0";
+                endif;
+                ?> jadwal hari ini</h3>
         </div>
         <div class="stat-card">
             <img src="../picture/dashboard.png" alt="" class="icon">
