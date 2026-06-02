@@ -97,6 +97,10 @@
             <h1>Upload Surat Izin</h1>
         </div>
         <div class="manual-input">
+            <label for="manualFile">Pilih File Surat</label>
+            <input type="file" id="manualFile" accept="image/*" />
+            <button id="manualSubmit">Kirim File</button>
+        </div></br>
             <form action="" method="post" enctype="multipart/form-data">
                 <label for="status">Status</label> <br/>
                 <select id="status" name="status" required>

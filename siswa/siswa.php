@@ -10,6 +10,26 @@
     <?php
         session_start();
 
+        include './../koneksi.php';
+        /** @var mysqli $koneksi */
+
+        if(!isset($_SESSION['ses_tipe'])){
+            header('location:../login.php?msg=login');
+            exit();
+        }
+        if($_SESSION['ses_tipe'] != 2 && $_SESSION['ses_tipe'] != 1){
+            echo "<script>alert('Maaf, akses tidak diizinkan.'); window.history.back();</script>";
+            exit();
+        }
+
+        // evnt
+
+        $week = mysqli_query($koneksi, "SELECT COUNT(*) AS cnt FROM agenda WHERE YEARWEEK(tanggal, 1) = YEARWEEK(CURDATE(), 1)");
+        $events_week = 0;
+        if ($week) {
+            $events_week = intval(mysqli_fetch_assoc($week)['cnt']);
+        }
+
         if(isset($_SESSION['ses_tipe'])==1){
     
         // schedule: count today’s schedule directly from database
@@ -61,6 +81,8 @@
                 ?> jadwal hari ini</h3>
         </div>
         <div class="stat-card">
+            <img src="../picture/dashboard.png" alt="" class="icon">
+            <h3><?php echo $events_week; ?> agenda minggu ini</h3>
             <img src="../picture/checklist.png" alt="" class="icon">
             <h3>3 Agenda minggu ini</h3>
         </div>
@@ -120,13 +142,6 @@
         </ul>
     </nav>
 
-    <?php
-
-        } else {
-            echo "Anda belum login, silahkan login terlebih dahulu";
-        }
-    ?>    
 </body>
 </html>
 
-    

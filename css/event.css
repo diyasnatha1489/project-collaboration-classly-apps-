@@ -41,7 +41,7 @@ body {
 
 /* event card */
 .card-event {
-    background-color: #375c78;
+    background-color: #6589ae;
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 15px;
@@ -113,7 +113,7 @@ body {
     resize: none;
 }
 .modal input[type="submit"] {
-    background-color: #375c78;
+    background-color: #6589ae;
     color: white;
     border: none;
     padding: 12px;
@@ -124,3 +124,4 @@ body {
 .modal input[type="submit"]:hover {
     background-color: #5a7285;
 }
+

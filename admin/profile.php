@@ -95,6 +95,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_nama'])) {
     </style>
 </head>
 <body>
+    <?php
+    include 'check-admin.php';
+    
+    include "../koneksi.php";
+    /** @var mysqli $koneksi */
+
+    $profileName = 'Nama tidak ditemukan';
+    $profileEmail = 'Email tidak ditemukan';
+    $profilePassword = '*****************';
+
+    if(isset($_SESSION['ses_username']) && !empty($_SESSION['ses_username'])){
+        $username = mysqli_real_escape_string($koneksi, $_SESSION['ses_username']);
+        $query = mysqli_query($koneksi, "SELECT first_name, email, password FROM user WHERE username='" . $username . "'");
+        if($query && mysqli_num_rows($query) > 0){
+            $row = mysqli_fetch_assoc($query);
+            $profileName = htmlspecialchars($row['first_name'] ?: $_SESSION['ses_username']);
+            $profileEmail = htmlspecialchars($row['email'] ?: 'Email tidak tersedia');
+            $profilePassword = str_repeat('*', 15);
+        }
+    } else {
+        echo '<p>Anda belum login. Silakan login terlebih dahulu.</p>';
+        exit;
+    }
+    ?>
     <div class="profile-container">
         <div class="content">
             <form action="admin.php?page=prfl" method="POST" enctype="multipart/form-data">

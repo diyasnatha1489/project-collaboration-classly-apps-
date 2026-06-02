@@ -8,6 +8,7 @@
 </head>
 <body>
     <?php
+    include 'check-admin.php';
     
     include './../koneksi.php';
     /** @var mysqli $koneksi */
@@ -93,8 +94,9 @@
     $text_event = "0 Event";
 
     if ($total_event > 0) {
-        $text_event = "$total_event Event";
+        $text_event = mysqli_query($koneksi, "SELECT judul FROM agenda WHERE tanggal = CURDATE() LIMIT 1")->fetch_assoc()['judul'];
         $class_event = "red flex";
+
     }
     ?>
     <div class="summary-quick">
@@ -118,7 +120,6 @@
         <div class="quick-stats">
             <h3>Event</h3>
             <p>Hari ini</p>
-            <h2 class="red flex">Tidak Ada Event</h2>
             <h2 class="<?php echo $class_event; ?>"><?php echo $text_event;  ?></h2>
             <div class="show-detail">
                 <a href="admin.php?page=evnt">Detail</a>

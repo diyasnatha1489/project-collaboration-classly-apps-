@@ -9,6 +9,10 @@ if (!isset($_SESSION['ses_tipe'])) {
 }
 
 if ($_SESSION['ses_tipe'] != 1) {
-    echo "<script>alert('Maaf, kamu bukan admin.'); window.location.href = '../siswa/siswa.php';</script>";
+    echo "<script>";
+    echo "alert('Maaf, kamu bukan admin.');";
+    echo "var target = document.referrer && document.referrer.indexOf(location.origin) === 0 ? document.referrer : '../siswa/siswa.php';";
+    echo "window.location.href = target;";
+    echo "</script>";
     exit();
 }

@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="../css/attd.css">
 </head>
 <body>
+    <?php
+        include 'check-admin.php';
+    ?>
     <div class="container-att">
         <nav class="attendance-nav">
             <!-- <ul>

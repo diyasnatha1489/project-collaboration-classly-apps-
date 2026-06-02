@@ -8,6 +8,8 @@
 </head>
 <body>
     <?php
+    include 'check-admin.php';
+    
     include '../koneksi.php';
     /**  @var mysqli $koneksi */    
     $id = $_GET['id'] ?? '';

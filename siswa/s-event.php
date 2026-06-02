@@ -16,7 +16,7 @@ $base_url = $included_in_admin ? 'admin.php?page=evnt' : 'event.php';
 <?php } ?>
 
 <section class="event-section">
-        <h3 class="bulan">NOVEMBER</h3>
+        <h3>NOVEMBER</h3>
 
         <?php 
         include "../koneksi.php";
