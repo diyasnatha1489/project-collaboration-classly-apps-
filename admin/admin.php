@@ -11,7 +11,8 @@
 </head>
 <body>
     <?php
-        session_start();
+        include 'check-admin.php';
+
         include './../koneksi.php';
         /** @var mysqli $koneksi */
 
@@ -30,7 +31,25 @@
         $total_events = 0;
         $total_notifications = 0;
             
-        if(isset($_SESSION['ses_tipe'])==1){
+        if(isset($_SESSION['ses_tipe']) && $_SESSION['ses_tipe'] == 1){
+
+        // jadwalll-event
+       $week = mysqli_query($koneksi, "SELECT COUNT(*) AS cnt FROM agenda WHERE YEARWEEK(tanggal, 1) = YEARWEEK(CURDATE(), 1)");
+        $events_week = 0;
+        if ($week) {
+            $events_week = intval(mysqli_fetch_assoc($week)['cnt']);
+        }
+
+        // codeclass
+
+            $admin_login = $_SESSION['username'];
+
+            $query_code = mysqli_query($koneksi, "SELECT class_code FROM user WHERE username='$admin_login' LIMIT 1");
+            $data_code = mysqli_fetch_assoc($query_code);
+
+            $class_code = isset($data_code['class_code']) ? $data_code['class_code'] : "XI RPL 2";
+
+
     ?>
 
     <!--NAVIGATION BAR START  -->
@@ -90,7 +109,7 @@
             <h1>XI RPL 2</h1>
         </div>
         <div class="fast-statistic">
-            <p>33550</p>
+            <p><?php echo htmlspecialchars($class_code); ?></p>
             <img src="../picture/dashboard.png" alt="" class="icon">
         </div>
     </div>
@@ -117,13 +136,9 @@
         </div>
         <div class="stat-card">
             <img src="../picture/dashboard.png" alt="" class="icon">
-            <h3><?php 
-                if ($total_events > 0):
-                    echo $total_events;
-                else: 
-                    echo "0";
-                endif;
-                ?> agenda minggu ini</h3>
+            <div class="heading-evnt">
+            <h3><?php echo $events_week; ?> agenda minggu ini</h3>
+            </div>
         </div>
         <div class="stat-card">
             <img src="../picture/dashboard.png" alt="" class="icon">

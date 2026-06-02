@@ -9,6 +9,18 @@
 <body> 
     <div class="form">
         <h2>Please Log In Here</h2>
+        <?php
+            if(isset($_GET['msg'])){
+                $msg = $_GET['msg'];
+                if($msg === 'bukan_admin'){
+                    echo '<p style="color:red; margin-bottom: 1rem;">Maaf, kamu bukan admin.</p>';
+                } elseif($msg === 'bukan_siswa'){
+                    echo '<p style="color:red; margin-bottom: 1rem;">Maaf, kamu bukan siswa.</p>';
+                } elseif($msg === 'login'){
+                    echo '<p style="color:red; margin-bottom: 1rem;">Silakan login terlebih dahulu.</p>';
+                }
+            }
+        ?>
         <form action="" method="POST">
             <div class="form-input">
                 <label for="username">Username</label>

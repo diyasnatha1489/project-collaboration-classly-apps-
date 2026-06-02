@@ -15,7 +15,7 @@
             <label for="manualFile">Pilih File Surat</label>
             <input type="file" id="manualFile" accept="image/*" />
             <button id="manualSubmit">Kirim File</button>
-        </div>
+        </div></br>
         <button class="back-button" onclick="window.location.href='../siswa.php?page=attd'">Kembali</button>
     </div>
 </body>

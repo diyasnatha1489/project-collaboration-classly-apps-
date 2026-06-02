@@ -1,9 +1,18 @@
 <?php
+include 'check-admin.php';
+
 $included_in_admin = basename($_SERVER['PHP_SELF']) === 'admin.php';
 $base_url = $included_in_admin ? 'admin.php?page=evnt' : 'event.php';
 ?>
 
 <?php if (!$included_in_admin) { ?>
+<?php
+ include 'check-admin.php';
+    
+include './../koneksi.php';
+/** @var mysqli $koneksi */
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

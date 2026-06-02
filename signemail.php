@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="form">
-    <h2>Sign With Ur Email</h2>
+    <h2>Sign With Your Email</h2>
     <form action="" method="POST">
         <p>
             <div class="form-input">
