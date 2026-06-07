@@ -24,14 +24,22 @@ if ($q && mysqli_num_rows($q) > 0) {
     $profilePassword = str_repeat('*', 15);
 }
 
-// Load profile image from filesystem if any exists
+// Load profile image
 $safeUsername = preg_replace('/[^a-zA-Z0-9_\-]/', '_', $username);
 $profileDir = __DIR__ . '/../picture/profile/';
-$profileFiles = glob($profileDir . $safeUsername . '_*');
-if (!empty($profileFiles)) {
-    $latest = end($profileFiles);
-    if (file_exists($latest)) {
-        $profileImage = '../picture/profile/' . basename($latest);
+
+// check for files matching student
+$studentFormatFiles = glob($profileDir . $safeUsername . '.*');
+if (!empty($studentFormatFiles)) {
+    $profileImage = '../picture/profile/' . basename($studentFormatFiles[0]);
+} else {
+    // If not found, check for files with timestamp convention
+    $adminFormatFiles = glob($profileDir . $safeUsername . '_*');
+    if (!empty($adminFormatFiles)) {
+        $latest = end($adminFormatFiles);
+        if (file_exists($latest)) {
+            $profileImage = '../picture/profile/' . basename($latest);
+        }
     }
 }
 
@@ -48,7 +56,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['upload_foto'])) {
             $safeName = preg_replace('/[^a-zA-Z0-9_\-]/', '_', $username);
             $targetDir = __DIR__ . '/../picture/profile/';
             if (!is_dir($targetDir)) mkdir($targetDir, 0777, true);
-            $filename = $safeName . '_' . time() . $ext;
+            // Use same format as student profile: username.ext (without timestamp)
+            $filename = $safeName . $ext;
             $targetPath = $targetDir . $filename;
             if (move_uploaded_file($tmp, $targetPath)) {
                 header('Location: admin.php?page=prfl');

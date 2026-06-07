@@ -147,7 +147,7 @@
                     <p>Izin</p>
                 </div>
                 <div>
-                    <h2><?php echo $total_present; ?></h2>
+                    <h2><?php echo $total_sick; ?></h2>
                     <p>Sakit</p>
                 </div>
                 <div>
