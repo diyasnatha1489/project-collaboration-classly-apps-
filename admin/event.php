@@ -24,15 +24,13 @@ include './../koneksi.php';
 <body>
 <?php } ?>
 
-<section class="event-section">
-        
         <a href="<?= $base_url ?>&action=tambah" class="btn-new-event">
             <span>Agenda Baru</span>
             <span>+</span>
         </a>
 
+    <section class="event-section">
         <h3 class="bulan">NOVEMBER</h3>
-
         <?php 
         include "../koneksi.php";
         /** @var mysqli $koneksi */

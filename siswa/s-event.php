@@ -10,7 +10,7 @@ $base_url = $included_in_admin ? 'admin.php?page=evnt' : 'event.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Page</title>
-    <link rel="stylesheet" href="../css/event.css">
+    <link rel="stylesheet" href="../css/event2.css">
 </head>
 <body>
 <?php } ?>
