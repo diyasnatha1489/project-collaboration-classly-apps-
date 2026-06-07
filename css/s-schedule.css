@@ -1,8 +1,8 @@
-.header{
+.title{
     display: flex;
     justify-content: space-between;
     padding: 0;
-    }
+}
 
 .table_container {
     overflow-y: auto;

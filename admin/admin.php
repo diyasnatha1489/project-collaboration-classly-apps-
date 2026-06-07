@@ -16,6 +16,9 @@
         include './../koneksi.php';
         /** @var mysqli $koneksi */
 
+        $username = htmlspecialchars($_SESSION['ses_username']);
+        $query = mysqli_query($koneksi, "SELECT first_name FROM user WHERE username='$username'");
+
         $query = "SELECT username FROM user WHERE tipe = 2";
 
         $result = $koneksi->query($query);
@@ -34,7 +37,7 @@
         if(isset($_SESSION['ses_tipe']) && $_SESSION['ses_tipe'] == 1){
 
         // jadwalll-event
-       $week = mysqli_query($koneksi, "SELECT COUNT(*) AS cnt FROM agenda WHERE YEARWEEK(tanggal, 1) = YEARWEEK(CURDATE(), 1)");
+        $week = mysqli_query($koneksi, "SELECT COUNT(*) AS cnt FROM agenda WHERE YEARWEEK(tanggal, 1) = YEARWEEK(CURDATE(), 1)");
         $events_week = 0;
         if ($week) {
             $events_week = intval(mysqli_fetch_assoc($week)['cnt']);
@@ -42,35 +45,29 @@
 
         // codeclass
 
-            $admin_login = $_SESSION['username'];
-
-            $query_code = mysqli_query($koneksi, "SELECT class_code FROM user WHERE username='$admin_login' LIMIT 1");
+            $admin_login = $_SESSION['ses_username'];
+            $query_code = mysqli_query($koneksi, "SELECT class_code FROM user WHERE username='$admin_login'");
             $data_code = mysqli_fetch_assoc($query_code);
-
             $class_code = isset($data_code['class_code']) ? $data_code['class_code'] : "XI RPL 2";
-
-
-    ?>
     
-    <?php
-    $daftar_hari = [
-        'Monday' => 'senin',
-        'Tuesday' => 'selasa',
-        'Wednesday' => 'rabu',
-        'Thursday' => 'kamis',
-        'Friday' => 'jumat'
-    ];
-    $hari = date('l');
-    $kolom_hari = isset($daftar_hari[$hari]) ? $daftar_hari[$hari] : '';
-    if (!empty($kolom_hari)) {
-        $sql_jadwal = "SELECT COUNT(DISTINCT `$kolom_hari`) AS cnt FROM jadwal_pelajaran WHERE `$kolom_hari` IS NOT NULL AND `$kolom_hari` != ''";
-        $result_jadwal = $koneksi->query($sql_jadwal);
-        if ($result_jadwal) {
-            $row = $result_jadwal->fetch_assoc();
-            $total_schedule = isset($row['cnt']) ? (int) $row['cnt'] : 0;
-        }
-    }
-    ?>
+            $daftar_hari = [
+                'Monday' => 'senin',
+                'Tuesday' => 'selasa',
+                'Wednesday' => 'rabu',
+                'Thursday' => 'kamis',
+                'Friday' => 'jumat'
+            ];
+            $hari = date('l');
+            $kolom_hari = isset($daftar_hari[$hari]) ? $daftar_hari[$hari] : '';
+            if (!empty($kolom_hari)) {
+                $sql_jadwal = "SELECT COUNT(DISTINCT `$kolom_hari`) AS cnt FROM jadwal_pelajaran WHERE `$kolom_hari` IS NOT NULL AND `$kolom_hari` != ''";
+                $result_jadwal = $koneksi->query($sql_jadwal);
+                if ($result_jadwal) {
+                    $row = $result_jadwal->fetch_assoc();
+                    $total_schedule = isset($row['cnt']) ? (int) $row['cnt'] : 0;
+                }
+            }
+        ?>
     
 
     <!--NAVIGATION BAR START  -->
@@ -82,7 +79,7 @@
             <a href="admin.php?page=prfl">
                 <img src="../picture/user-profile.jpg" alt="" class="img-profile">
                 <div class="user-name">
-                    <h3>Maula Qodri Lail</h3>
+                    <h3><?php echo $username;?></h3>
                     <p>Admin</p>
                 </div>                        
             </a>
@@ -113,12 +110,6 @@
                         <span>Event</span>
                     </li>
                 </a>
-                <!-- <a href="admin.php?page=insg">
-                    <li>
-                        <img src="../picture/dashboard.png" alt="" class="icon">
-                        <span>Insight</span>
-                    </li>
-                </a> -->
             </ul>
         </nav>
     </div>
@@ -131,7 +122,7 @@
         </div>
         <div class="fast-statistic">
             <p><?php echo htmlspecialchars($class_code); ?></p>
-            <img src="../picture/dashboard.png" alt="" class="icon">
+            <!-- <img src="../picture/dashboard.png" alt="" class="icon"> -->
         </div>
     </div>
     <div class="summary-card">
@@ -146,6 +137,10 @@
                 ?> siswa aktif</h3>
         </div>
         <div class="stat-card">
+            <img src="../picture/event.png" alt="" class="icon">
+            <h3><?php echo $events_week; ?> agenda minggu ini</h3>
+        </div>
+        <div class="stat-card">
             <img src="../picture/appointment (1).png" alt="" class="icon">
             <h3><?php 
                 if ($total_schedule > 0):
@@ -155,11 +150,7 @@
                 endif;
                 ?> jadwal hari ini</h3>
         </div>
-        <div class="stat-card">
-            <img src="../picture/event.png" alt="" class="icon">
-            <h3><?php echo $events_week; ?> agenda minggu ini</h3>
-        </div>
-        <div class="stat-card">
+        <!-- <div class="stat-card">
             <img src="../picture/notification (1).png" alt="" class="icon">
             <h3><?php 
                 if ($total_notifications > 0):
@@ -168,7 +159,7 @@
                     echo "0";
                 endif;
                 ?> notifikasi belum dibaca</h3>
-        </div>
+        </div> -->
     </div>
     <!-- APP INFORMATION END -->
 

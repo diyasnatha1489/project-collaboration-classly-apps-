@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page Admin</title>
+    <title>Home Page Siswa</title>
     <link rel="stylesheet" href="../css/sis.css">
 </head>
 <body>
@@ -23,7 +23,6 @@
         }
 
         // evnt
-
         $week = mysqli_query($koneksi, "SELECT COUNT(*) AS cnt FROM agenda WHERE YEARWEEK(tanggal, 1) = YEARWEEK(CURDATE(), 1)");
         $events_week = 0;
         if ($week) {
@@ -33,26 +32,41 @@
         if(isset($_SESSION['ses_tipe'])==1){
     
         // schedule: count today’s schedule directly from database
-    $daftar_hari = [
-        'Monday' => 'senin',
-        'Tuesday' => 'selasa',
-        'Wednesday' => 'rabu',
-        'Thursday' => 'kamis',
-        'Friday' => 'jumat'
-    ]; }
-    $hari = date('l');
-    $kolom_hari = isset($daftar_hari[$hari]) ? $daftar_hari[$hari] : '';
-    $total_schedule = 0;
-    if (!empty($kolom_hari)) {
-        include './../koneksi.php';
-        /** @var mysqli $koneksi */
-        $sql_jadwal = "SELECT COUNT(DISTINCT `$kolom_hari`) AS cnt FROM jadwal_pelajaran WHERE `$kolom_hari` IS NOT NULL AND `$kolom_hari` != ''";
-        $result_jadwal = $koneksi->query($sql_jadwal);
-        if ($result_jadwal) {
-            $row = $result_jadwal->fetch_assoc();
-            $total_schedule = isset($row['cnt']) ? (int) $row['cnt'] : 0;
+        $daftar_hari = [
+            'Monday' => 'senin',
+            'Tuesday' => 'selasa',
+            'Wednesday' => 'rabu',
+            'Thursday' => 'kamis',
+            'Friday' => 'jumat'
+        ]; }
+        $hari = date('l');
+        $kolom_hari = isset($daftar_hari[$hari]) ? $daftar_hari[$hari] : '';
+        $total_schedule = 0;
+        if (!empty($kolom_hari)) {
+            include './../koneksi.php';
+            /** @var mysqli $koneksi */
+            $sql_jadwal = "SELECT COUNT(DISTINCT `$kolom_hari`) AS cnt FROM jadwal_pelajaran WHERE `$kolom_hari` IS NOT NULL AND `$kolom_hari` != ''";
+            $result_jadwal = $koneksi->query($sql_jadwal);
+            if ($result_jadwal) {
+                $row = $result_jadwal->fetch_assoc();
+                $total_schedule = isset($row['cnt']) ? (int) $row['cnt'] : 0;
+            }
+        } 
+
+        $status_db = isset($row['status']) ? $row['status'] : '';
+        $status_text = 'Belum Absen';
+
+        switch ($status_db) {
+            case 'Present':
+                $status_text = 'Hadir';
+                break;
+            case 'Permit':
+                $status_text = 'Hadir';
+                break;
+            case 'Sick':
+                $status_text = 'Hadir';
+                break;
         }
-    } 
     ?>
 
     <!-- HEADER START  -->
@@ -63,7 +77,7 @@
         </div>
         <div class="chart-container">
             <!-- <p>33550</p> -->
-            <img src="../picture/logo.png" alt="" class="logo">
+            <!-- <img src="../picture/logo.png" alt="" class="logo"> -->
         </div>
     </div>
     <!-- HEADER END -->
@@ -86,8 +100,8 @@
         </div>
         <div class="stat-card">
             <img src="../picture/notification (1).png" alt="" class="icon">
-            <h3>2 notifikasi belum dibaca</h3>
-        </div>
+            <h3><?php echo $status_text; ?></h3>
+        </div> 
     </div>
     <!-- APP INFORMATION END -->
      

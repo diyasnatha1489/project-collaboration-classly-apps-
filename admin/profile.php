@@ -137,18 +137,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_nama'])) {
             <div class="card">
                 <div class="item">
                     <span><?php echo $profileName; ?></span>
-                    <button type="button" class="edit" onclick="toggleDetail()">
+                    <button type="button" class="edit-nama" onclick="toggleDetail()">
                         Detail
                     </button>
                 </div>
 
                 <div id="detailNama" style="display:none;">
-                    <form action="admin.php?page=prfl" method="POST">
-                        <input type="text"
-                            name="first_name"
-                            value="<?php echo $profileName; ?>">
-
-                        <button type="submit" name="update_nama">
+                    <form action="admin.php?page=prfl" method="POST" class="item">
+                        <input type="text" name="first_name" value="<?php echo $profileName; ?>" class="nama-baru">
+                        <button type="submit" name="update_nama" class="edit-nama">
                             Simpan
                         </button>
                     </form>

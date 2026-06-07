@@ -41,21 +41,27 @@
             echo "<script>alert('". addslashes($msg) ."'); window.location.href='siswa.php?page=attd';</script>";
             exit;
         }
+        
+        include __DIR__ . '/../koneksi.php';
+        $username = htmlspecialchars($_SESSION['ses_username']);
+        $query = mysqli_query($koneksi, "SELECT first_name FROM user WHERE username='$username'");
+        $date = date('Y-m-d');
+        $time = date('H:i:s');
     ?>
     <div class="today">
         <img src="./../picture/attendance.png" alt="">
         <table>
             <tr>
                 <td>Profile Name</td>
-                <td class="right">Maula Qodri Lail</td>
+                <td class="right"><?php echo $username;?></td>
             </tr>
             <tr>
                 <td>Date</td>
-                <td class="right">Friday, Nov 14</td>
+                <td class="right"><?php echo $date;?></td>
             </tr>
             <tr>
                 <td>Expired Time</td>
-                <td class="right">07.00 WIB</td>
+                <td class="right"><?php echo $time;?></td>
             </tr>
         </table>
         <div class="option-button">

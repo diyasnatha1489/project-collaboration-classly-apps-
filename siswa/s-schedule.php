@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schedule</title>
-    <link rel="stylesheet" href="../css/s-scd.css">
+    <link rel="stylesheet" href="../css/s-schedule.css">
 </head>
 <body>
     <?php
@@ -17,7 +17,7 @@
         die('Database query error: ' . mysqli_error($koneksi));
     }
     ?>
-    <div class="header">
+    <div class="title">
         <h2>JADWAL PELAJARAN</h2>
     </div>
     <div class="table_container">

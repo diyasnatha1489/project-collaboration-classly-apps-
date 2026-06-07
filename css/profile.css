@@ -94,3 +94,25 @@
     color: #000000;
     font-weight: bold;
 }
+
+.nama-baru {
+    background: #ffffff;
+    color: #000;
+    border-radius: 999px;
+    width: 70%;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    border: 2px solid #fff;
+}
+
+.edit-nama {
+    background: #ffffff;
+    color: #000;
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    border: 2px solid #fff;
+}
+

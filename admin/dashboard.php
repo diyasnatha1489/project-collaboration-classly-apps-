@@ -30,6 +30,40 @@
         $total_present = 0;
     }
 
+    // Mengambil data absensi hari ini yang berstatus permit
+    $query = "SELECT user.username, user.username AS nama_siswa, attendance.date, attendance.time
+            FROM attendance
+            JOIN user ON attendance.username = user.username
+            WHERE attendance.date = CURDATE() AND attendance.status = 'Permit'
+            ORDER by attendance.time ASC";
+
+    // Gunakan query langsung dengan mysqli, lalu pastikan $data_permit selalu array
+    $result = $koneksi->query($query);
+    if ($result) {
+        $data_permit = $result->fetch_all(MYSQLI_ASSOC);
+        $total_permit = count($data_permit);
+    } else {
+        $data_permit = [];
+        $total_permit = 0;
+    }
+
+    // Mengambil data absensi hari ini yang berstatus sick
+    $query = "SELECT user.username, user.username AS nama_siswa, attendance.date, attendance.time
+            FROM attendance
+            JOIN user ON attendance.username = user.username
+            WHERE attendance.date = CURDATE() AND attendance.status = 'Sick'
+            ORDER by attendance.time ASC";
+
+    // Gunakan query langsung dengan mysqli, lalu pastikan $data_sick selalu array
+    $result = $koneksi->query($query);
+    if ($result) {
+        $data_sick = $result->fetch_all(MYSQLI_ASSOC);
+        $total_sick = count($data_sick);
+    } else {
+        $data_sick = [];
+        $total_sick = 0;
+    }
+
     $tanggal_skrg = date('Y-m-d');
 
     $query = "SELECT user.username FROM user WHERE tipe = 2 AND username NOT IN (
@@ -86,7 +120,6 @@
    
     
     // eventtt
-
     $sql_evnt = "SELECT COUNT(*) AS total_event FROM agenda WHERE tanggal = CURDATE()";
     $result_evnt = mysqli_query($koneksi, $sql_evnt);
     $data_evnt = mysqli_fetch_assoc($result_evnt);
@@ -99,6 +132,7 @@
 
     }
     ?>
+
     <div class="summary-quick">
         <div class="quick-stats">
             <h3>Absensi</h3>
@@ -107,6 +141,14 @@
                 <div>
                     <h2><?php echo $total_present; ?></h2>
                     <p>Hadir</p>
+                </div>
+                <div>
+                    <h2><?php echo $total_permit; ?></h2>
+                    <p>Izin</p>
+                </div>
+                <div>
+                    <h2><?php echo $total_present; ?></h2>
+                    <p>Sakit</p>
                 </div>
                 <div>
                     <h2 class="red"><?php echo $total_absent; ?></h2>

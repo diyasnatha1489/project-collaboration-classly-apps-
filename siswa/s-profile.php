@@ -1,5 +1,6 @@
 <?php
 include "../koneksi.php";
+/**  @var mysqli $koneksi */
 
 if (!isset($_SESSION['ses_username']) || empty($_SESSION['ses_username'])) {
     echo '<p>Anda belum login. Silakan login terlebih dahulu.</p>';
@@ -81,136 +82,7 @@ if ($query && mysqli_num_rows($query) > 0) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile Siswa</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f2f2f2;
-    }
-
-    .container {
-      min-height: 100vh;
-      background: white;
-      padding: 24px 20px 40px;
-      text-align: center;
-      box-sizing: border-box;
-    }
-
-    .profile-img {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      object-fit: cover;
-      display: block;
-      margin: 0 auto;
-      border: 4px solid #f3de92;
-    }
-
-    .profile-photo-wrap {
-      position: relative;
-      display: inline-block;
-      cursor: pointer;
-      margin-bottom: 12px;
-    }
-
-    .edit-badge {
-      position: absolute;
-      right: 0;
-      bottom: 6px;
-      background: #f3de92;
-      color: #000;
-      border-radius: 999px;
-      padding: 6px 12px;
-      font-size: 12px;
-      font-weight: 700;
-      border: 2px solid #fff;
-    }
-
-    .title {
-      font-size: 22px;
-      letter-spacing: 1px;
-      margin: 10px 0 20px;
-    }
-
-    .card {
-      background: #f3de92;
-      border-radius: 30px;
-      padding: 24px 16px;
-      max-width: 480px;
-      margin: 0 auto;
-      text-align: left;
-    }
-
-    .item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 0;
-      border-bottom: 3px solid #f0f0f0;
-      font-size: 18px;
-      gap: 12px;
-    }
-
-    .item:last-child {
-      border-bottom: 0;
-    }
-
-    .item span {
-      word-break: break-word;
-    }
-
-    .logout {
-      margin-top: 24px;
-      text-align: center;
-    }
-
-    .logout a {
-      text-decoration: underline;
-      color: black;
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    .hidden-input {
-      display: none;
-    }
-
-    .upload-form {
-      margin-bottom: 20px;
-    }
-
-    .upload-note {
-      margin: 8px 0 0;
-      font-size: 13px;
-      color: #555;
-    }
-
-    .profile-message {
-      margin: 12px auto 0;
-      max-width: 430px;
-      border-radius: 12px;
-      padding: 10px 12px;
-      font-size: 14px;
-      background: #eefbf1;
-      color: #1f6f43;
-    }
-
-    .save-photo-btn {
-      margin-top: 12px;
-      border: 0;
-      border-radius: 999px;
-      padding: 10px 18px;
-      background: #000;
-      color: #fff;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .save-photo-btn:hover {
-      opacity: 0.9;
-    }
-  </style>
+  <link rel="stylesheet" href="../css/s-profile.css">
 </head>
 <body>
   <div class="container">
@@ -221,27 +93,26 @@ if ($query && mysqli_num_rows($query) > 0) {
       </label>
       <input type="file" name="profile_image" id="profileImageInput" class="hidden-input" accept="image/*">
       <input type="hidden" name="update_profile_photo" value="1">
-      <p class="upload-note">Klik foto untuk memilih gambar baru</p>
-      <button type="submit" class="save-photo-btn">Simpan foto</button>
+      <!-- <p class="upload-note">Klik foto untuk memilih gambar baru</p> -->
+      <button type="submit" class="save-photo-btn">Save</button>
+      <!-- <h2 class="title">PROFILE SISWA</h2> -->
+      <!-- <?php if (!empty($profileMessage)): ?>
+        <p class="profile-message"><?= htmlspecialchars($profileMessage); ?></p>
+      <?php endif; ?> -->
     </form>
-
-    <h2 class="title">PROFILE SISWA</h2>
 
     <div class="card">
      <div class="item">
         <span><?php echo $firstName; ?></span>
-        <button type="button" class="edit" onclick="toggleDetail()">
+        <button type="button" class="edit-nama" onclick="toggleDetail()">
             Detail
         </button>
     </div>
 
     <div id="detailNama" style="display:none;">
-        <form action="" method="POST">
-            <input type="text"
-                  name="first_name"
-                  value="<?php echo $firstName; ?>">
-
-            <button type="submit" name="update_nama">
+        <form action="" method="POST" class="item">
+            <input type="text" name="first_name" value="<?php echo $firstName; ?>" class="nama-baru">
+            <button type="submit" name="update_nama" class="edit-nama">
                 Simpan
             </button>
         </form>
@@ -261,10 +132,6 @@ if ($query && mysqli_num_rows($query) > 0) {
         <a href="../logout.php">LOGOUT</a>
       </div>
     </div>
-
-    <?php if (!empty($profileMessage)): ?>
-      <p class="profile-message"><?= htmlspecialchars($profileMessage); ?></p>
-    <?php endif; ?>
   </div>
 
   <script>
