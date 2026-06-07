@@ -16,7 +16,30 @@
         include './../koneksi.php';
         /** @var mysqli $koneksi */
 
+        // profile
         $username = htmlspecialchars($_SESSION['ses_username']);
+        
+        // Load profile image
+        $profileImage = '../picture/user-profile.jpg';
+        $safeUsername = preg_replace('/[^a-zA-Z0-9_\-]/', '_', $_SESSION['ses_username']);
+        $profileDir = __DIR__ . '/../picture/profile/';
+        
+        // Check for files matching student profile convention (username.ext)
+        $studentFormatFiles = glob($profileDir . $safeUsername . '.*');
+        if (!empty($studentFormatFiles)) {
+            $profileImage = '../picture/profile/' . basename($studentFormatFiles[0]);
+        } else {
+            // If not found, check for files with timestamp convention (username_*.ext)
+            $adminFormatFiles = glob($profileDir . $safeUsername . '_*');
+            if (!empty($adminFormatFiles)) {
+                $latest = end($adminFormatFiles);
+                if (file_exists($latest)) {
+                    $profileImage = '../picture/profile/' . basename($latest);
+                }
+            }
+        }
+        
+        // active person
         $query = mysqli_query($koneksi, "SELECT first_name FROM user WHERE username='$username'");
 
         $query = "SELECT username FROM user WHERE tipe = 2";
@@ -77,7 +100,7 @@
         </div>
         <div class="user-profile">
             <a href="admin.php?page=prfl">
-                <img src="../picture/user-profile.jpg" alt="" class="img-profile">
+                <img src="<?php echo $profileImage; ?>" alt="" class="img-profile">
                 <div class="user-name">
                     <h3><?php echo $username;?></h3>
                     <p>Admin</p>
