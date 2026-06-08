@@ -23,18 +23,37 @@
         $profileImage = '../picture/user-profile.jpg';
         $safeUsername = preg_replace('/[^a-zA-Z0-9_\-]/', '_', $_SESSION['ses_username']);
         $profileDir = __DIR__ . '/../picture/profile/';
-        
-        // Check for files matching student profile convention (username.ext)
-        $studentFormatFiles = glob($profileDir . $safeUsername . '.*');
-        if (!empty($studentFormatFiles)) {
-            $profileImage = '../picture/profile/' . basename($studentFormatFiles[0]);
-        } else {
-            // If not found, check for files with timestamp convention (username_*.ext)
-            $adminFormatFiles = glob($profileDir . $safeUsername . '_*');
-            if (!empty($adminFormatFiles)) {
-                $latest = end($adminFormatFiles);
-                if (file_exists($latest)) {
-                    $profileImage = '../picture/profile/' . basename($latest);
+        $allowedExtensions = ['jpg', 'jpeg', 'png', 'webp'];
+        $found = false;
+
+        $files = glob($profileDir . $safeUsername . '.*');
+        foreach ($files as $file) {
+            if (preg_match('/\.(' . implode('|', $allowedExtensions) . ')$/i', $file)) {
+                $profileImage = '../picture/profile/' . basename($file);
+                $found = true;
+                break;
+            }
+        }
+
+        if (!$found) {
+            foreach ($allowedExtensions as $ext) {
+                $timestampFiles = glob($profileDir . $safeUsername . '_*.' . $ext, GLOB_BRACE);
+                if (!empty($timestampFiles)) {
+                    $latest = end($timestampFiles);
+                    if (file_exists($latest)) {
+                        $profileImage = '../picture/profile/' . basename($latest);
+                        $found = true;
+                        break;
+                    }
+                }
+                $timestampFiles = glob($profileDir . $safeUsername . '_*.' . strtoupper($ext), GLOB_BRACE);
+                if (!empty($timestampFiles)) {
+                    $latest = end($timestampFiles);
+                    if (file_exists($latest)) {
+                        $profileImage = '../picture/profile/' . basename($latest);
+                        $found = true;
+                        break;
+                    }
                 }
             }
         }
