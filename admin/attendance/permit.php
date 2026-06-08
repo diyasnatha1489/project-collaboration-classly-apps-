@@ -60,7 +60,7 @@
                     <tr>
                         <th>Students</th>
                         <th>Date</th>
-                        <th>File</th>
+                        <th>Time</th>
                     </tr>
                 </thead>
                 <tbody>

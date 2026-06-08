@@ -65,7 +65,7 @@
             </tr>
         </table>
         <div class="option-button">
-            <a href="option/scan.php">Scan Or Code</a>
+            <a href="option/scan.php">Scan QR Code</a>
             <a href="option/izin.php">Izin</a>
         </div>
     </div>
